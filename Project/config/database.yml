@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: mysql
-  password: <%= ENV['MYSQL_ENV_MYSQL_PASSWORD'] %>
+  username: root
+  password: <%= ENV['MYSQL_ENV_MYSQL_ROOT_PASSWORD'] %>
   host: mysql
 
 development:
@@ -47,6 +47,9 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+
+#Dans le readme sur le srv
 production:
   <<: *default
   database: Project_production
