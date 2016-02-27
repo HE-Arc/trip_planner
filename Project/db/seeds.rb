@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Trip.create(title:"Voyage au Japon de Mama", description:"Margaux part en voyage")
+Trip.create(title:"Le pays des licornes", description:"Afin de découvrire cette race méconnue")

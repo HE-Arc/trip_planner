@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog - <%= @trip.title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1><%= @trip.title %></h1>
+<h2>Insert Stage</h2>
+<%= form_for([@trip, @stage]) do |f| %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %><br />
+    <%= f.label :adress %><br />
+    <%= f.text_field :adress %><br />
+    <%= f.label :description %><br />
+    <%= f.text_area :description %><br />
+
+    <%= f.label :date_time %><br />
+    <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br />
+
+    <%= f.submit %>
+<% end %>
+
+<% if flash[:alerts] %>
+    <ul>
+    <% flash[:alerts].each do |alert| %>
+        <li><%= alert %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+
+<h2>Show Stages</h2>
+<ul>
+
+<% if @myStages.size == 0 %>
+    <p>Aucun stage</p>
+<% end %>
+
+<% @myStages.each do |myStage| %>
+    <li><%= myStage.id %>, <%= myStage.title %> : <%= myStage.description %>, <%= myStage.adress %>, <%= myStage.date_time %></li>
+<% end %>
+
+
+
+</ul>
+
+</body>
+</html>

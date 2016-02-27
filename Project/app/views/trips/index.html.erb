@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trips</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>Trips</h1>
+<ul>
+
+<% @trips.each do |trip| %>
+    <li><%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %></li>
+<% end %>
+
+</ul>
+
+</body>
+</html>
