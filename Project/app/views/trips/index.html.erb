@@ -15,6 +15,11 @@
     <li><%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %></li>
 <% end %>
 
+<% if @trips.empty? %>
+    <p>Aucun voyage</p>
+<% end %>
+
+
 </ul>
 
 </body>

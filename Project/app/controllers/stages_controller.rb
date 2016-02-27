@@ -21,7 +21,6 @@ class StagesController < ActionController::Base
     if stage.save
       redirect_to @trip
     else
-      @myStages = Stage.all
       flash[:alerts] = stage.errors.full_messages
       redirect_to @trip
     end
