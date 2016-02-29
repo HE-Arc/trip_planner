@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  insertArticle: "Insert article"
+  insertButton: "Insert"
+
+  activerecord:
+      models:
+        stage: trip stage
+      attributes:
+         stage:
+            title: "Title"
+            description: "Description"
+            adress: "Local adress"
+            date_time: "Date and time"
