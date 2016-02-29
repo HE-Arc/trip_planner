@@ -32,7 +32,10 @@
             <%= f.text_field :adress %><br />
 
             <%= f.label :date_time %><br />
-            <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br />
+            <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
+
+            <%= f.label :image %><br />
+            <%= f.file_field :image %><br />
           </div>
         </div>
 
@@ -67,7 +70,8 @@
       <section class="article-line">
         <article class="article-all-content">
           <div class="article-box">
-            <img src="#" class="article-img"/>
+
+            <%= image_tag myStage.image.url(:small) , :class => "article-img" %>
             <div class="article-content">
 
               <h1><%= myStage.title %></h1>
