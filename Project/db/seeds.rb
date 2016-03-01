@@ -9,3 +9,9 @@
 
 Trip.create(title:"Voyage au Japon de Mama", description:"Margaux part en voyage")
 Trip.create(title:"Le pays des licornes", description:"Afin de découvrire cette race méconnue")
+
+Stagetype.create(title:"Restauration", icon:"fa-cutlery")
+Stagetype.create(title:"Hôtel", icon:"fa-bed")
+Stagetype.create(title:"Visite", icon:"fa-fort-awesome")
+Stagetype.create(title:"Shopping", icon:"fa-shopping-cart")
+Stagetype.create(title:"Partage", icon:"fa-users")

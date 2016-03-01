@@ -4,6 +4,7 @@ class Stage < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :trip
+  belongs_to :stagetype
 
   validates :title,
             presence: true,
@@ -13,6 +14,8 @@ class Stage < ActiveRecord::Base
   validates :adress,
             length: {minimum: 0, maximum: 255}
   validates :date_time,
+            presence: true
+  validates :stagetype_id,
             presence: true
 
 end

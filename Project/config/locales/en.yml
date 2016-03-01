@@ -30,9 +30,11 @@ en:
   activerecord:
       models:
         stage: trip stage
+        stagetype: type
       attributes:
          stage:
             title: "Title"
             description: "Description"
             adress: "Local adress"
             date_time: "Date and time"
+            stagetype_id: "Type"
