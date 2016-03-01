@@ -80,11 +80,22 @@
 
             </div>
           </div>
+          <div class="article-control">
+            <%= link_to t('edit'),
+                        edit_trip_stage_path(@trip, myStage),
+                        :class=>"article-control-btn"%>
+            <%= link_to t('delete'),
+                        [@trip, myStage],
+                        confirm: "Are you sure?",
+                        :method => :delete,
+                        :class=>"article-control-btn"%>
+          </div>
         </article>
         <div class="article-chronology">
           <div class="article-chronology-line">&nbsp;</div>
           <div class="article-chronology-logo"><i class="fa fa-cutlery"></i></div>
           <div class="article-chronology-date"><p><%= myStage.date_time.strftime('%d.%m.%Y') %> <br/> <%=myStage.date_time.strftime('%H:%M')%> </p></div>
+
         </div>
       </section>
   <% end %>

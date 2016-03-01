@@ -21,7 +21,11 @@
 
 en:
   insertArticle: "Insert article"
+  editArticle: "Edit article"
   insertButton: "Insert"
+  delete: "Delete"
+  edit: "Edit"
+  update: "Update"
 
   activerecord:
       models:

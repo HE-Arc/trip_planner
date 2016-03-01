@@ -1,0 +1,43 @@
+<section id="trip-insert-frm">
+  <div id="trip-insert-center">
+    <h2><%= t('editArticle') %></h2>
+
+    <%= form_for([@trip, @stage]) do |f| %>
+
+        <div class="colx2-container">
+          <div class="colx2">
+            <%= f.label :title %><br />
+            <%= f.text_field :title %><br />
+
+            <%= f.label :description %><br />
+            <%= f.text_area :description %><br />
+          </div>
+          <div class="colx2 col2">
+            <%= f.label :adress %><br />
+            <%= f.text_field :adress %><br />
+
+            <%= f.label :date_time %><br />
+            <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
+
+            <%= f.label :image %><br />
+            <%= f.file_field :image %><br />
+
+            <label>Current</label>
+            <%= image_tag @stage.image.url(:small) , :class => "article-img" %>
+          </div>
+        </div>
+
+        <%= f.submit t('update') %>
+    <% end %>
+
+    <% if flash[:alerts] %>
+        <ul>
+          <% flash[:alerts].each do |alert| %>
+              <li><%= alert %></li>
+          <% end %>
+        </ul>
+    <% end %>
+  </div>
+</section>
+
+

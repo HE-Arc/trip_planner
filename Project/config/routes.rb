@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :stages
   end
 
+  #get 'trips/:id_trip/edit_stage/:id_stage' => 'trips#edit_stage', :as => 'edit_stage'
+
 
 
   # Example of regular route:

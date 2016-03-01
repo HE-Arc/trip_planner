@@ -39,6 +39,9 @@ h1, h2, h3, p{
 
   @include border-radius(5px);
 
+  text-decoration: none;
+  font-family: "Century Gothic", Arial, sans-serif;
+
   &:hover{
     cursor: pointer;
     opacity: 0.8;
@@ -351,5 +354,12 @@ footer{
       margin: 0;
     }
   }
+}
+
+.article-control-btn{
+  @include button();
+
+  display: inline-block;
+  margin-top: 10px;
 }
 
