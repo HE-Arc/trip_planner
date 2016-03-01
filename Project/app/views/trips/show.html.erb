@@ -95,9 +95,18 @@
           <div class="article-chronology-line">&nbsp;</div>
           <div class="article-chronology-logo"><i class="fa fa-cutlery"></i></div>
           <div class="article-chronology-date"><p><%= myStage.date_time.strftime('%d.%m.%Y') %> <br/> <%=myStage.date_time.strftime('%H:%M')%> </p></div>
-
         </div>
       </section>
   <% end %>
 
+</section>
+
+<section id="trip-description">
+  <div class="trip-description-center">
+    <div class="trip-description-content">
+
+      <p><%= @trip.description %></p>
+    </div>
+
+  </div>
 </section>

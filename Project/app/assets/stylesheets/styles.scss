@@ -363,3 +363,22 @@ footer{
   margin-top: 10px;
 }
 
+#trip-description{
+  .trip-description-center{
+    @include content-center();
+
+    padding: 10px;
+    margin-bottom: 20px;
+    position: relative;
+
+    margin-top: 0px;
+  }
+  .trip-description-content{
+
+    background-color: $mainColor;
+    @include border-radius(5px);
+    padding: 10px;
+    margin-top: -15px;
+
+  }
+}
