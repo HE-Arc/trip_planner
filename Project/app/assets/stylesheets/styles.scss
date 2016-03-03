@@ -213,6 +213,13 @@ footer{
   border-bottom-color: $light-zone;
   border-bottom-width: 1px;
 
+  #info_adress{
+    text-align: right;
+    color: $dark-touch;
+    font-size: 13px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
   //ror frm
   #new_stage{
     input[type="submit"]{
