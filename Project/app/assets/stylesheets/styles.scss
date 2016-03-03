@@ -234,18 +234,108 @@ footer{
 
     input[type="text"]{
       width: 100%;
-    }
-    input[type="text"]{
-      width: 100%;
+
+      -webkit-box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.3);
+      box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.3);
+
+      padding: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+
       margin-bottom: 10px;
     }
+
     textarea{
       width: 100%;
       margin-bottom: 10px;
       height: 80px;
+      padding: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+
+      -webkit-box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.3);
+      box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.3);
     }
     label{
       font-family: Arial, Sans-Serif;
+    }
+  }
+  #finded_adresses{
+    max-height: 120px;
+    overflow-y: scroll;
+    background-color: white;
+    -webkit-box-shadow:inset 0 0 2px 0 rgba(0,0,0,0.4);
+    box-shadow:inset 0 0 2px 0 rgba(0,0,0,0.4);
+    @include border-radius(5px);
+    margin-bottom: 10px;
+
+  }
+
+  .formated_adress{
+    padding: 0;
+    margin: 0;
+
+    font-size: 13px;
+    color: $dark-touch;
+    span{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .gps_adress{
+      font-size: 10px;
+    }
+    .rbtn_adress_span{
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    p{
+      margin: 0;
+      padding: 0;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+#nb_results{
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+#find-mapsAPI{
+  display: table;
+  width: 100%;
+  position: relative;
+  #find_addr{
+    display: table-cell;
+    width: 94% !important;
+
+  }
+  .find-btn{
+
+
+    display: table-cell;
+    width: 6%;
+
+    text-align: right;
+
+    height: 5px;
+    i{
+      background-color: $dark-touch;
+      padding: 6px;
+      color: $lighter-zone;
+      @include border-radius(2px);
+      cursor: pointer;
+      &:hover{
+        opacity: 0.8;
+      }
+      &:active{
+        background-color: $lighter-zone;
+        color: $dark-touch;
+      }
     }
   }
 }

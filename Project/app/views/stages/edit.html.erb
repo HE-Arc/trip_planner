@@ -1,5 +1,20 @@
 <% content_for :title, t('editArticle') %>
 
+<section id="head-travel">
+
+  <div id="head-travel-center">
+
+    <div id="head-travel-img">&nbsp;</div>
+    <div id="head-travel-descr">
+      <p><%= @trip.title %></p>
+      <p>Date start - end</p>
+      <p>Author</p>
+    </div>
+
+  </div>
+
+</section>
+
 <section id="trip-insert-frm">
   <div id="trip-insert-center">
     <h2><%= t('editArticle') %></h2>
@@ -13,10 +28,29 @@
 
             <%= f.label :description %><br />
             <%= f.text_area :description %><br />
+
+            <%= f.label :stagetype_id %><br />
+
+            <% Stagetype.all.each do |type| %>
+                <div class="trip-insert-radio">
+                  <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>"
+                    <% if type==@stage.stagetype %>
+                      <%= "checked" %>
+                    <%end%>
+                  />
+                  <i class="fa <%=type.icon%>"> <%=type.title%></i>
+                </div>
+            <% end %>
           </div>
           <div class="colx2 col2">
             <%= f.label :adress %><br />
-            <%= f.text_field :adress %><br />
+            <div id="find-mapsAPI">
+              <input type="text" name="find_addr" id="find_addr" value="<%= @stage.adress %>" />
+              <div class="find-btn"><i class="fa fa-search"></i></div>
+            </div>
+
+            <div id="finded_adresses"></div>
+            <p id="nb_results"></p>
 
             <%= f.label :date_time %><br />
             <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
@@ -24,12 +58,13 @@
             <%= f.label :image %><br />
             <%= f.file_field :image %><br />
 
-            <label>Current</label>
-            <%= image_tag @stage.image.url(:small) , :class => "article-img" %>
+            <p>Current : <%= image_tag @stage.image.url(:small) , :class => "article-img" %></p>
+
+
           </div>
         </div>
 
-        <%= f.submit t('update') %>
+        <%= f.submit t('edit') %>
     <% end %>
 
     <% if flash[:alerts] %>
@@ -41,5 +76,11 @@
     <% end %>
   </div>
 </section>
+
+<%= javascript_include_tag 'trip_frm'%>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Dp3v9OvUEEhePVbi3FoKCHrwpC2Yhhs&callback=initGeoEdit">
+</script>
 
 
