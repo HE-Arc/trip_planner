@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'trip_frm'%>
+<% content_for :title, @trip.title %>
 
 <section id="head-travel">
 
@@ -124,3 +124,6 @@
 
   </div>
 </section>
+
+<%= javascript_include_tag 'trip_frm'%>
+

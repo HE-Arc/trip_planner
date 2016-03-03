@@ -1,4 +1,4 @@
-class StagesController < ActionController::Base
+class StagesController < ApplicationController
 
   before_action :identificate_user , only: [:create, :destroy, :edit]
   before_action :get_trip , only: [:create, :destroy, :edit, :update]

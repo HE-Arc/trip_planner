@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
-  <title>Traveler</title>
+  <title>Traveler - <%= yield(:title) %></title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -18,26 +18,31 @@
 
   <div id="head-top-center">
 
-    <div class="head-top-nav">
-      <a href="#">link1</a>
+    <div id="head-top-center">
 
-      <a href="#">link2</a>
+      <div class="head-top-nav">
 
-      <a href="#">link3</a>
+        <a href="#">Accueil</a>
 
-      <a href="#">link4</a>
-    </div>
+        <!--<a href="#">link2</a>
 
-    <div id="head-top-logo"><i class="fa fa-globe"></i></div>
+        <a href="#">link3</a>
 
-    <div class="head-top-nav">
-      <a href="#">link1</a>
+        <a href="#">link4</a>-->
+      </div>
 
-      <a href="#">link2</a>
+      <div id="head-top-logo"><i class="fa fa-globe"></i></div>
 
-      <a href="#">link3</a>
+      <div class="head-top-nav">
+        <a href="#">Recherche</a>
 
-      <a href="#">link4</a>
+        <!--<a href="#">link2</a>
+
+        <a href="#">link3</a>
+
+        <a href="#">link4</a>-->
+      </div>
+
     </div>
 
   </div>
@@ -45,11 +50,11 @@
 </header>
 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
 <%= yield %>
 
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 
 <footer>
