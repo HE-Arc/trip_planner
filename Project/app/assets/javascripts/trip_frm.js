@@ -15,6 +15,9 @@ function initGeo() {
     $('#find_addr').focusout(function() {
         geocodeAddress(geocoder);
     });
+
+    //initialize maps (trip_map.js)
+    initMap();
 }
 
 function initGeoEdit() {
@@ -32,11 +35,6 @@ function geocodeAddress(geocoder) {
     var address = document.getElementById('find_addr').value;
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-            //resultsMap.setCenter(results[0].geometry.location);
-            //var marker = new google.maps.Marker({
-            //  map: resultsMap,
-            //  position: results[0].geometry.location
-            //});
 
             var htmlcode = "";
             for(var i=0; i<results.length; i++){
@@ -49,7 +47,6 @@ function geocodeAddress(geocoder) {
 
                 line += "/></span><span><p>" + results[i].formatted_address+ "<br /><span class='gps_adress'>GPS:" + results[i].geometry.location + "</span></p></span>";
                 line += "<div>";
-                //var line = "<b>" + results[i].formatted_address + "</b><br />GPS : " + results[i].geometry.location + "<br/>";
                 htmlcode += line;
             }
 
