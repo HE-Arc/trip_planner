@@ -1,9 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  icon: MyString
-
-two:
-  title: MyString
-  icon: MyString
+randonnee:
+  id: 1
+  title: "randonnée"
+  icon: "randonnee-ico"

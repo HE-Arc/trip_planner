@@ -40,14 +40,19 @@
           </div>
           <div class="colx2 col2">
             <%= f.label :adress %><br />
-            <%= f.text_field :adress %><br />
+            <div id="find-mapsAPI">
+              <input type="text" name="find_addr" id="find_addr" />
+              <div class="find-btn"><i class="fa fa-search"></i></div>
+            </div>
+
+            <div id="finded_adresses"></div>
+            <p id="nb_results"></p>
 
             <%= f.label :date_time %><br />
             <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
 
             <%= f.label :image %><br />
             <%= f.file_field :image %><br />
-
 
           </div>
         </div>
@@ -65,7 +70,7 @@
   </div>
 </section>
 
-
+<div id="map"></div>
 
 <!--
 <section id="travel-map">
@@ -126,4 +131,11 @@
 </section>
 
 <%= javascript_include_tag 'trip_frm'%>
+<%= javascript_include_tag 'trip_map'%>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Dp3v9OvUEEhePVbi3FoKCHrwpC2Yhhs&callback=initGeo">
+</script>
+
+
 
