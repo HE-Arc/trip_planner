@@ -7,3 +7,13 @@ one:
 two:
   title: MyString
   description: MyText
+
+myTripFirstStage:
+  title: First Stage to wonderland
+  description: I went to eat delicious fruits
+  trip_id: 3
+
+myTripSecondStage:
+  title: Second Stage to wonderland
+  description: I went to sleep on the sand
+  trip_id: 3

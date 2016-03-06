@@ -7,3 +7,9 @@ one:
 two:
   title: MyString
   description: MyText
+
+myTrip:
+  id: 3
+  title: My Trip far far away
+  description: Discover the beauty of freedom
+  user_id: 1
