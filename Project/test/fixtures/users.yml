@@ -7,6 +7,9 @@
 margaux:
   id: 1
   email: "mama@gmail.com"
-  encrypted_password: "blablabla"
+  encrypted_password: "blablabla"user1:
+  id: 2
+  email: monmail@gmail.com
 
-
+user2:
+  email: monmail2@gmail.com

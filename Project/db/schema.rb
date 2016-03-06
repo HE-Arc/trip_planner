@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301145331) do
+ActiveRecord::Schema.define(version: 20160306180156) do
 
   create_table "stages", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -43,7 +43,10 @@ ActiveRecord::Schema.define(version: 20160301145331) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "user_id",     limit: 4
   end
+
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -65,4 +68,5 @@ ActiveRecord::Schema.define(version: 20160301145331) do
 
   add_foreign_key "stages", "stagetypes"
   add_foreign_key "stages", "trips"
+  add_foreign_key "trips", "users"
 end

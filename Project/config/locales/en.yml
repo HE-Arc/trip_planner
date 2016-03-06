@@ -27,6 +27,8 @@ en:
   edit: "Edit"
   update: "Update"
 
+  travel_create_title : "Create a new travel"
+
   activerecord:
       models:
         stage: trip stage
@@ -35,6 +37,6 @@ en:
          stage:
             title: "Title"
             description: "Description"
-            adress: "Local adress"
+            adress: "Local address"
             date_time: "Date and time"
             stagetype_id: "Type"
