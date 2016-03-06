@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
-
-two:
-  title: MyString
-  description: MyText
+petite_promenade:
+  id: 1
+  title: "Petite promenade"
+  description: "Dans les bois !"
+  adress: "La Chx-de-Fds, Suisse"
+  date_time: 2016-02-11 11:02:57
+  stagetype_id: 1
