@@ -49,12 +49,17 @@
 
 </header>
 
+<% if !notice.nil? %>
+  <div class="notice"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= notice %></p></div></div>
+<% end %>
+<% if !alert.nil? %>
+  <div class="alert"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= alert %></p></div></div>
+<% end %>
 
 <%= yield %>
 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
 
 
 <footer>
