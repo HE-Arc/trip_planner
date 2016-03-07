@@ -3,5 +3,10 @@ margaux:
   email: "mama@gmail.com"
   encrypted_password: "blablabla"
 
+steve:
+  id: 2
+  email: "stst@gmail.com"
+  encrypted_password: "blablabla"
+
 user2:
   email: monmail2@gmail.com

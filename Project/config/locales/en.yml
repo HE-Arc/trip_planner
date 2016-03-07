@@ -28,6 +28,8 @@ en:
   update: "Update"
 
   travel_create_title : "Create a new travel"
+  travel_create_trip_title : "Title"
+  travel_create_trip_description : "Description"
 
   activerecord:
       models:
