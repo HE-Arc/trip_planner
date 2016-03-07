@@ -8,4 +8,8 @@ class Trip < ActiveRecord::Base
   validates :description,
             length: {minimum: 0, maximum: 65535}
 
+  validates_uniqueness_of :title, :scope => :user_id
+
+  attr_accessible :title, :description
+
 end

@@ -6,6 +6,8 @@
     <li>
       <%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %>
       <%= button_to "delete", trip, :method=>:delete, :class=>:destroy %>
+      <%= link_to "update", edit_trip_path(trip.id) %>
+
     </li>
   <% end %>
 

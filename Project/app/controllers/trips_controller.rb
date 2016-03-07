@@ -19,20 +19,42 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new()
-    @trip.title = params[:title]
-    @trip.description = params[:description]
-    @trip.user = current_user
-    if @trip.save
-      flash.notice = "Win!"
-      redirect_to action: :index
+    if current_user != nil
+      @trip = Trip.new(params[:trip])
+      @trip.user = current_user
+
+      if @trip.save
+        flash.notice = "Win!"
+        redirect_to action: :index
+      else
+        flash.alert = @trip.errors.full_messages
+        redirect_to action: :new
+      end
     else
-      flash.alert = @trip.errors.full_messages
-      redirect_to action: :new
+      flash.alert = "Must be connected"
+      redirect_to action: :index
     end
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
   def update
+    if current_user != nil
+      @trip = Trip.find(params[:id])
+      if current_user.id == @trip.user_id
+        if @trip.update(params[:trip])
+          flash.notice = "Win!"
+          else
+            render 'edit'
+        end
+      else
+        flash.alert = "Cannot update someone else's trip"
+      end
+    else
+      flash.alert = "Must be connected to edit a trip"
+    end
     redirect_to action: :index
   end
 
@@ -52,6 +74,10 @@ class TripsController < ApplicationController
       flash.alert = "Not connected"
     end
     redirect_to action: :index
+  end
+
+  def trip_params
+    params.require(:trip).permit(:title, :description)
   end
 
 end
