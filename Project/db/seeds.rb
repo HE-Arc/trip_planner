@@ -7,8 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Trip.create(title:"Voyage au Japon de Mama", description:"Margaux part en voyage")
-Trip.create(title:"Le pays des licornes", description:"Afin de découvrire cette race méconnue")
+userTest = User.create( :email => "guy@gmail.com", :password => "1234", :password_confirmation => "1234")
+
+Trip.create(title:"Voyage au Japon de Mama", description:"Margaux part en voyage", user: userTest)
+Trip.create(title:"Le pays des licornes", description:"Afin de découvrire cette race méconnue", user: userTest)
 
 Stagetype.create(title:"Restauration", icon:"fa-cutlery")
 Stagetype.create(title:"Hôtel", icon:"fa-bed")

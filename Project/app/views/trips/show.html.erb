@@ -15,60 +15,63 @@
 
 </section>
 
-<section id="trip-insert-frm">
-  <div id="trip-insert-center">
-    <h2><%= t('insertArticle') %></h2>
+<% if current_user == @trip.user && !current_user.nil? %>
+  <section id="trip-insert-frm">
 
-    <%= form_for([@trip, @stage]) do |f| %>
+    <div id="trip-insert-center">
+      <h2><%= t('insertArticle') %></h2>
 
-        <div class="colx2-container">
-          <div class="colx2">
-            <%= f.label :title %><br />
-            <%= f.text_field :title %><br />
+      <%= form_for([@trip, @stage]) do |f| %>
 
-            <%= f.label :description %><br />
-            <%= f.text_area :description %><br />
+          <div class="colx2-container">
+            <div class="colx2">
+              <%= f.label :title %><br />
+              <%= f.text_field :title %><br />
 
-            <%= f.label :stagetype_id %><br />
+              <%= f.label :description %><br />
+              <%= f.text_area :description %><br />
 
-            <% Stagetype.all.each do |type| %>
-                <div class="trip-insert-radio">
-                  <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>" />
-                  <i class="fa <%=type.icon%>"> <%=type.title%></i>
-                </div>
-            <% end %>
-          </div>
-          <div class="colx2 col2">
-            <%= f.label :adress %><br />
-            <div id="find-mapsAPI">
-              <input type="text" name="find_addr" id="find_addr" />
-              <div class="find-btn"><i class="fa fa-search"></i></div>
+              <%= f.label :stagetype_id %><br />
+
+              <% Stagetype.all.each do |type| %>
+                  <div class="trip-insert-radio">
+                    <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>" />
+                    <i class="fa <%=type.icon%>"> <%=type.title%></i>
+                  </div>
+              <% end %>
             </div>
+            <div class="colx2 col2">
+              <%= f.label :adress %><br />
+              <div id="find-mapsAPI">
+                <input type="text" name="find_addr" id="find_addr" />
+                <div class="find-btn"><i class="fa fa-search"></i></div>
+              </div>
 
-            <div id="finded_adresses"></div>
-            <p id="nb_results"></p>
+              <div id="finded_adresses"></div>
+              <p id="nb_results"></p>
 
-            <%= f.label :date_time %><br />
-            <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
+              <%= f.label :date_time %><br />
+              <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
 
-            <%= f.label :image %><br />
-            <%= f.file_field :image %><br />
+              <%= f.label :image %><br />
+              <%= f.file_field :image %><br />
 
+            </div>
           </div>
-        </div>
 
-        <%= f.submit t('insertButton') %>
-    <% end %>
+          <%= f.submit t('insertButton') %>
+      <% end %>
 
-    <% if flash[:alerts] %>
-        <ul>
-          <% flash[:alerts].each do |alert| %>
-              <li><%= alert %></li>
-          <% end %>
-        </ul>
-    <% end %>
-  </div>
-</section>
+      <% if flash[:alerts] %>
+          <ul>
+            <% flash[:alerts].each do |alert| %>
+                <li><%= alert %></li>
+            <% end %>
+          </ul>
+      <% end %>
+    </div>
+  </section>
+<% end %>
 
 <div id="map"></div>
 
@@ -98,16 +101,18 @@
 
             </div>
           </div>
-          <div class="article-control">
-            <%= link_to t('edit'),
-                        edit_trip_stage_path(@trip, myStage),
-                        :class=>"article-control-btn"%>
-            <%= link_to t('delete'),
-                        [@trip, myStage],
-                        confirm: "Are you sure?",
-                        :method => :delete,
-                        :class=>"article-control-btn"%>
-          </div>
+          <% if current_user == @trip.user && !current_user.nil? %>
+            <div class="article-control">
+              <%= link_to t('edit'),
+                          edit_trip_stage_path(@trip, myStage),
+                          :class=>"article-control-btn"%>
+              <%= link_to t('delete'),
+                          [@trip, myStage],
+                          confirm: "Are you sure?",
+                          :method => :delete,
+                          :class=>"article-control-btn"%>
+            </div>
+          <% end %>
         </article>
 
         <div class="article-chronology">

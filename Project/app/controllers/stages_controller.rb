@@ -1,10 +1,16 @@
 class StagesController < ApplicationController
 
-  before_action :identificate_user , only: [:create, :destroy, :edit]
   before_action :get_trip , only: [:create, :destroy, :edit, :update]
+  before_action :identificate_user , only: [:create, :destroy, :edit]
+
 
   def identificate_user
-    #TODO : the user must be the owner of the trip to add / remove / edit stages
+
+    if !user_signed_in? || current_user != @trip.user
+      flash[:notice] = t('you_havent_perm')
+      redirect_to @trip
+    end
+
   end
 
   def get_trip

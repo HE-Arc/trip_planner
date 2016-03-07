@@ -31,6 +31,8 @@ en:
   travel_create_trip_title : "Title"
   travel_create_trip_description : "Description"
 
+  you_havent_perm: "Sorry, you haven't the permissions"
+
   activerecord:
       models:
         stage: trip stage

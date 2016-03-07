@@ -511,3 +511,36 @@ footer{
 
   }
 }
+
+
+// Alerts
+@mixin alert-message-top(){
+  width: 100%;
+
+  background-color: $light-zone;
+  margin: 0;
+
+  p{
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+}
+.notice{
+  @include alert-message-top();
+  background-color: yellow;
+  p{
+    color: black !important;
+  }
+
+}
+.alert{
+  @include alert-message-top();
+  background-color: red;
+}
+.center-content{
+  @include content-center();
+}
