@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get ':id_user/trips' => 'trips#user_list'
 
+  get 'trips/new' => 'trips#new'
+
   #get 'trips/:id_trip/edit_stage/:id_stage' => 'trips#edit_stage', :as => 'edit_stage'
 
   # Example of regular route:
