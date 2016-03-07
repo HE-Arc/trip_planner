@@ -19,10 +19,11 @@ class TripsControllerTest < ActionController::TestCase
   end
 
   test "should destroy trip" do
+    current_user = users(:margaux)
     t = trips(:myTrip)
-    assert_difference('Trip.count') do
-      delete :destroy, id: t.id
-    end
+    count1 = Trip.count
+    delete :destroy, id: t.id
+    assert_same Trip.count, count1-1, "Nombre de voyages #{Trip.count} != #{count1-1}"
   end
 
   test "should not destroy trip without connection and correct member" do

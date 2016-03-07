@@ -6,15 +6,15 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'trips#index'
+  root 'trips#index', as: 'index'
 
   resources :trips do
     resources :stages
   end
 
-  get ':id_user/trips' => 'trips#user_list'
+  get 'users/:id/trips' => 'trips#user_list', as: 'trip_from_user'
 
-  get 'trips/new' => 'trips#new'
+  get 'trips/new' => 'trips#new', as: 'create_new_trip'
 
   #get 'trips/:id_trip/edit_stage/:id_stage' => 'trips#edit_stage', :as => 'edit_stage'
 
