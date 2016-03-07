@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   end
 
   def user_list
-    @trips = Trip.all #where(:user_id => 'params[:id_user]')
+    @trips = Trip.where(:user_id => params[:id])
   end
 
   def show
@@ -19,27 +19,39 @@ class TripsController < ApplicationController
   end
 
   def create
-      @trip = Trip.new()
-      @trip.title = params[:title]
-      @trip.description = params[:description]
-      @trip.user = current_user
-      if @trip.save
-        flash.notice = "Win!"
-        redirect_to action: :index
-      else
-        flash.alert += @trip.errors.full_messages
-        redirect_to action: :new
-      end
+    @trip = Trip.new()
+    @trip.title = params[:title]
+    @trip.description = params[:description]
+    @trip.user = current_user
+    if @trip.save
+      flash.notice = "Win!"
+      redirect_to action: :index
+    else
+      flash.alert = @trip.errors.full_messages
+      redirect_to action: :new
+    end
   end
 
-  def destroy
+  def update
     redirect_to action: :index
   end
 
-    def permitted_params
-      params.permit trip: [:title, :description]
+  def destroy
+    @trip = Trip.find(params[:id])
+    if current_user != nil
+      if current_user.id == @trip.user_id
+        @trip.stages.each do |stage|
+          stage.delete
+        end
+        Trip.find(params[:id]).delete
+        flash.notice = "Deleted"
+      else
+        flash.alert = "Not your trip"
+      end
+    else
+      flash.alert = "Not connected"
     end
-
-
+    redirect_to action: :index
+  end
 
 end

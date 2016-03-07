@@ -22,8 +22,19 @@
 
       <div class="head-top-nav">
 
-        <a href="#">Accueil</a>
+        <%= link_to 'Accueil', index_path() %>
 
+        <% if user_signed_in? %>
+
+            <%= link_to 'Create Trip', create_new_trip_path() %>
+
+            <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
+        <% else %>
+
+            <%= link_to 'Connection', user_session_url %>
+
+
+        <% end %>
         <!--<a href="#">link2</a>
 
         <a href="#">link3</a>

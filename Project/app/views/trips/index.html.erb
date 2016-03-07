@@ -3,7 +3,10 @@
 <h1>Trips (temporaire)</h1>
 <ul>
   <% @trips.each do |trip| %>
-    <li><%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %></li>
+    <li>
+      <%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %>
+      <%= button_to "delete", trip, :method=>:delete, :class=>:destroy %>
+    </li>
   <% end %>
 
   <% if @trips.empty? %>
