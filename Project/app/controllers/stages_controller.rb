@@ -22,13 +22,15 @@ class StagesController < ApplicationController
 
 
   def create
-    stage = Stage.new(stage_params)
-    stage.trip = @trip
-    if stage.save
+    @stage = Stage.new(stage_params)
+    @stage.trip = @trip
+    if @stage.save
       redirect_to @trip
     else
-      flash[:alerts] = stage.errors.full_messages
-      redirect_to @trip
+      flash[:alerts] = @stage.errors.full_messages
+
+      @myStages = @trip.stages.order(:date_time).reverse_order
+      render template: "trips/show"
     end
   end
 
