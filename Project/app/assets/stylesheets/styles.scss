@@ -71,7 +71,6 @@ h1, h2, h3, p{
   margin-left: auto;
   margin-right: auto;
 }
-
 .head-top-nav{
   display: inline-block;
 
@@ -243,6 +242,8 @@ footer{
       font-size: 14px;
 
       margin-bottom: 10px;
+
+      border:none;
     }
 
     textarea{
@@ -255,6 +256,8 @@ footer{
 
       -webkit-box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.3);
       box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.3);
+
+      border:none;
     }
     label{
       font-family: Arial, Sans-Serif;
@@ -512,6 +515,93 @@ footer{
   }
 }
 
+//
+// User pannel
+//
+
+#user-pannel{
+  background-color: $lighter-zone;
+  text-align: right;
+  overflow: hidden;
+}
+
+#info-user{
+  display: inline-block;
+
+  margin-left: 20px;
+  margin-right: 10px;
+
+
+  vertical-align: center;
+}
+
+#icon-user{
+  display: inline-block;
+  font-size: 30px;
+  float: right;
+
+  margin-top: 10px;
+
+
+  vertical-align: center;
+}
+
+#button-little{
+  display: inline-block;
+
+  @include button();
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  a{
+    line-height: 12px;
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    text-decoration: none;
+    color: white;
+
+    &:active{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+#button-open-pannel{
+  float: right;
+  background-color: $dark-touch;
+
+  border: none;
+  font-family: "Century Gothic", Arial, sans-serif;
+
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  &:active{
+    opacity: 1.0;
+  }
+
+  p{
+    
+    font-size: 20px;
+    line-height: 20px;
+    margin: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+
+    color: white;
+    cursor: pointer;
+  }
+
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
+}
+
 
 // Alerts
 @mixin alert-message-top(){
@@ -537,10 +627,13 @@ footer{
   }
 
 }
+
 .alert{
   @include alert-message-top();
   background-color: red;
 }
+
+
 .center-content{
   @include content-center();
 }

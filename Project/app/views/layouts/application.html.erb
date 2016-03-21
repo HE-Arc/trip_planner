@@ -9,6 +9,7 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "styles.css" %>
 </head>
@@ -25,14 +26,12 @@
         <%= link_to 'Accueil', index_path() %>
 
         <% if user_signed_in? %>
-
             <%= link_to 'Create Trip', create_new_trip_path() %>
 
             <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
         <% else %>
 
             <%= link_to 'Connection', user_session_url %>
-
 
         <% end %>
         <!--<a href="#">link2</a>
@@ -67,9 +66,52 @@
   <div class="alert"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= alert %></p></div></div>
 <% end %>
 
+
+  <section id="user-pannel">
+    <div class="center-content">
+      <% if user_signed_in? %>
+        <div id="button-little">
+          <%= link_to 'Create Trip', create_new_trip_path() %>
+        </div>
+        <div id="button-little">
+          <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
+        </div>
+        <div id="button-little">
+          <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
+        </div>
+        <div id="info-user">
+          <p><%= current_user.email %></p>
+        </div>
+        <i class="fa fa-user" id="icon-user"></i>
+
+      <% else %>
+
+        <div id="button-little">
+          <%= link_to "Login", user_session_url %>
+        </div>
+        <div id="button-little">
+           <%= link_to "Subscribe", new_user_registration_url %>
+        </div>
+
+      <% end %>
+    </div>
+  </section>
+
+<div class="center-content">
+  <div id="button-open-pannel">
+
+    <% if user_signed_in? %>
+      <p><i class="fa fa-user"></i></p>
+    <% else %>
+      <p><i class="fa fa-sign-in"></i></p>
+    <% end %>
+
+  </div>
+</div>
+
+
+
 <%= yield %>
-
-
 
 
 

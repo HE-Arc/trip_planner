@@ -14,3 +14,5 @@ Rails.application.config.assets.precompile += %w( styles.css )
 
 Rails.application.config.assets.precompile += %w( trip_frm.js )
 Rails.application.config.assets.precompile += %w( trip_map.js )
+
+Rails.application.config.assets.precompile += %w( user_ctrl.js )

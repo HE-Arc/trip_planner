@@ -8,13 +8,13 @@ class TripsControllerTest < ActionController::TestCase
     t = trips(:myTrip)
     u = users(:margaux)
     get :user_list, id: u.id
-    assert_same assigns(:trips).count, u.trips.count
+    assert_equal assigns(:trips).count, u.trips.count
   end
 
   test "should index the list of trips" do
     t = trips(:myTrip)
     get :index
-    assert_same assigns(:trips).count, Trip.count
+    assert_equal assigns(:trips).count, Trip.count
   end
 
   test "should create trip" do
@@ -56,18 +56,18 @@ class TripsControllerTest < ActionController::TestCase
     t_id = trips(:myTrip).id
     put :update, id: t_id, trip: { title: "My new title", description: "My new description" }
     t2 = trips(:myTrip)
-    ## assert_same or assert_equal return wrongly
-    assert Trip.find(t_id).title == t2.title
-    assert Trip.find(t_id).description == t2.description
+
+    assert_equal Trip.find(t_id).title, t2.title
+    assert_equal Trip.find(t_id).description, t2.description
   end
 
   test "should not edit trip without connection" do
     t_id = trips(:myTrip).id
     put :update, id: t_id, trip: { title: "My new title", description: "My new description" }
     t2 = trips(:myTrip)
-    ## assert_same or assert_equal return wrongly
-    assert Trip.find(t_id).title == t2.title
-    assert Trip.find(t_id).description == t2.description
+
+    assert_equal Trip.find(t_id).title, t2.title
+    assert_equal Trip.find(t_id).description, t2.description
   end
 
   test "should destroy trip" do
@@ -75,7 +75,7 @@ class TripsControllerTest < ActionController::TestCase
     t = trips(:myTrip)
     count1 = Trip.count
     delete :destroy, id: t.id
-    assert_same Trip.count, count1-1, "Nombre de voyages #{Trip.count} != #{count1-1}"
+    assert_equal Trip.count, count1-1, "Nombre de voyages #{Trip.count} != #{count1-1}"
   end
 
   test "should not destroy trip without connection and correct member" do
@@ -84,7 +84,7 @@ class TripsControllerTest < ActionController::TestCase
     count1 = Trip.count
     delete :destroy, id: t.id
     count2 = Trip.count
-    assert_same count1, count2
+    assert_equal count1, count2
   end
 
   test "should not destroy trip without connection" do
@@ -92,7 +92,7 @@ class TripsControllerTest < ActionController::TestCase
     count1 = Trip.count
     delete :destroy, id: t.id
     count2 = Trip.count
-    assert_same count1, count2
+    assert_equal count1, count2
   end
 
   test "should show trip" do
