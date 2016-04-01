@@ -33,6 +33,16 @@ en:
 
   you_havent_perm: "Sorry, you haven't the permissions"
 
+  trip_personnal_title: "My Trips"
+  trip_personnal_empty: "You currently don't have any trip"
+  trip_personnal_create_first: "Create your first trip!"
+  trip_personnal_edit: "Edit"
+
+  trip_list_follow: "Follow"
+  trip_list_view : "View the trip"
+
+  trip_delete: "Delete"
+
   activerecord:
       models:
         stage: trip stage

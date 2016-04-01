@@ -1,12 +1,16 @@
-<% content_for :title, "My Trips" %>
+<% content_for :title, t('trip_personnal_title') %>
 
-<h1>My Trips</h1>
-<ul>
+<div class="center-content">
+<h1><%= t('trip_personnal_title') %></h1>
   <% @trips.each do |trip| %>
-    <li><%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %></li>
+
+      <%= render :template => 'trips/show_trip_listing', :locals => { :trip => trip } %>
+
   <% end %>
 
   <% if @trips.empty? %>
-    <p>Aucun voyage</p>
+    <p><%= t('trip_personnal_empty') %></p>
+
+      <%= link_to t('trip_personnal_create_first'), create_new_trip_path(), { :class => 'button' } %>
   <% end %>
-</ul>
+</div>

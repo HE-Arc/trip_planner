@@ -1,20 +1,17 @@
 <% content_for :title, "Trips" %>
 
-<h1>Trips (temporaire)</h1>
-<ul>
-  <% @trips.each do |trip| %>
-    <li>
-      <%= link_to trip.title, trip %> <%= trip.id %>, <%= trip.description %>
-      <%= button_to "delete", trip, :method=>:delete, :class=>:destroy %>
-      <%= link_to "update", edit_trip_path(trip.id) %>
+<div class="center-content">
+  <h1>Tous les voyages</h1>
 
-    </li>
+  <% @trips.each do |trip| %>
+
+      <%= render :template => 'trips/show_trip_listing', :locals => { :trip => trip } %>
+
   <% end %>
 
   <% if @trips.empty? %>
     <p>Aucun voyage</p>
   <% end %>
-
 
   <br/>
 
@@ -28,4 +25,4 @@
       <%= link_to "Subscribe", new_user_registration_url %>
       <%= link_to "Login", user_session_url %>
   <% end %>
-</ul>
+</div>

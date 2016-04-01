@@ -1,12 +1,12 @@
 <% content_for :title, t('travel_update_title') %>
 
-<h1>Edit</h1>
-<%= form_for @trip do |f| %>
-    <%= f.label :title %>:
-    <%= f.text_field :title %><br />
+<div class="center-content">
+  <h1><%= t('travel_update_title') %></h1>
 
-    <%= f.label :description %>:
-    <%= f.text_field :description %><br />
+  <%= render 'form' %>
 
-    <%= f.submit %>
-<% end %>
+  <br/>
+  <%= button_to  t('trip_delete'), @trip, :method=>:delete, :class=>:destroy %>
+
+  <br/>
+</div>

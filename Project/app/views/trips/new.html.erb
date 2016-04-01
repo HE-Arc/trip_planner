@@ -1,13 +1,9 @@
 <% content_for :title, t('travel_create_title') %>
 
-<h1>Trips (temporaire)</h1>
+<div class="center-content">
+  <h1><%= t('travel_create_title') %></h1>
 
-<%= form_for @trip do |f| %>
-    <%= f.label :title %>:
-    <%= f.text_field :title %><br />
+  <%= render 'form' %>
 
-    <%= f.label :description %>:
-    <%= f.text_field :description %><br />
-
-    <%= f.submit %>
-<% end %>
+  <br/>
+</div>

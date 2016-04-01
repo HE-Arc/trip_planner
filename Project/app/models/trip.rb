@@ -10,6 +10,6 @@ class Trip < ActiveRecord::Base
 
   validates_uniqueness_of :title, :scope => :user_id
 
-  attr_accessible :title, :description
+  attr_accessible :title, :description, :date_start, :date_end, :main_country
 
 end

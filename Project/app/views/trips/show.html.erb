@@ -7,8 +7,8 @@
     <div id="head-travel-img">&nbsp;</div>
     <div id="head-travel-descr">
       <p><%= @trip.title %></p>
-      <p>Date start - end</p>
-      <p>Author</p>
+      <p><i class="fa fa-calendar"></i> <%= @trip.date_start.strftime("%d/%m/%y") %> - <%= @trip.date_end.strftime("%d/%m/%y") %><br/></p>
+      <p><i class="fa fa-user"></i> <%= @trip.user.email %></p>
     </div>
 
   </div>
