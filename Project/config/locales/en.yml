@@ -26,6 +26,8 @@ en:
   delete: "Delete"
   edit: "Edit"
   update: "Update"
+  confirm: "Are you sure?"
+  nostage: "Sorry, no stage yet..."
 
   travel_create_title : "Create a new travel"
   travel_create_trip_title : "Title"

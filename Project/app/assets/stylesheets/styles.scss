@@ -366,7 +366,9 @@ input[type="submit"]{
     opacity: 0.5;
     z-index: 0;
   }
-
+  span{
+    font-family: "Century Gothic", Arial, Sans-Serif;
+  }
   :checked + i {
     opacity: 1;
   }
@@ -425,6 +427,7 @@ input[type="submit"]{
     -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
     box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
 
+    position: relative;
 
   }
   .article-chronology{
@@ -472,7 +475,6 @@ input[type="submit"]{
   .article-img{
     display: inline-block;
 
-
     background-color: $dark-touch;
     width: 133px;
     height: 100px;
@@ -489,6 +491,13 @@ input[type="submit"]{
     h1, p{
       margin: 0;
     }
+  }
+
+  .article-lieu{
+    font-size: 12px;
+    color: $dark-touch;
+    position: absolute;
+    bottom: 7px;
   }
 }
 
@@ -639,6 +648,10 @@ input[type="submit"]{
 
 .center-content{
   @include content-center();
+}
+
+.imgLink{
+  text-decoration: none;
 }
 
 @mixin underscore-from-left() {

@@ -5,7 +5,14 @@
 
   <% @trips.each do |trip| %>
 
-      <%= render :template => 'trips/show_trip_listing', :locals => { :trip => trip } %>
+
+
+
+      <%= link_to(trip) do %>
+          <div class="display-trip-buttons-right">
+            <%= t('trip_list_view') %>
+          </div>
+      <% end %>
 
   <% end %>
 

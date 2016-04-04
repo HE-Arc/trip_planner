@@ -25,11 +25,20 @@ class StagesController < ApplicationController
     @stage = Stage.new(stage_params)
     @stage.trip = @trip
     if @stage.save
+
+      if params[:images]
+        #http://www.railscook.com/recipes/multiple-files-upload-with-nested-resource-using-paperclip-in-rails/
+        params[:images].each { |image|
+          @stage.image_stages.create(image: image)
+        }
+      end
+
+
       redirect_to @trip
     else
       flash[:alerts] = @stage.errors.full_messages
 
-      @myStages = @trip.stages.order(:date_time).reverse_order
+      @my_stages = @trip.stages.order(:date_time).reverse_order
       render template: "trips/show"
     end
   end

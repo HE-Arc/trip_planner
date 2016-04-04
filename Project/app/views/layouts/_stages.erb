@@ -1,0 +1,67 @@
+<section id="articles">
+
+
+
+  <% if @my_stages.empty? %>
+      <p><%= t('nostage') %></p>
+
+  <% else %>
+    <% @my_stages.each do |stage| %>
+
+      <section class="article-line">
+        <article class="article-all-content">
+          <div class="article-box">
+
+
+
+            <span id="lightgallery">
+
+              <% stage.image_stages.each do |image| %>
+
+                <a href="<%= image.image.url(:big) %>" class="imgLink">
+                  <%= image_tag image.image.url(:small), :class => "article-img" %>
+                </a>
+
+              <%end%>
+            </span>
+
+            <div class="article-content">
+
+              <h1><%= stage.title %></h1>
+              <p><%= stage.description %></p>
+              <p class="article-lieu"><%= stage.adress %></p>
+
+            </div>
+          </div>
+          <% if current_user == @trip.user && !current_user.nil? %>
+            <div class="article-control">
+              <%= link_to t('edit'),
+                          edit_trip_stage_path(@trip, stage),
+                          :class=>"article-control-btn"%>
+              <%= link_to t('delete'),
+                          [@trip, stage],
+                          :confirm => t('confirm'),
+                          :method => :delete,
+                          :class=>"article-control-btn"%>
+            </div>
+          <% end %>
+        </article>
+
+        <div class="article-chronology">
+          <div class="article-chronology-line">&nbsp;</div>
+          <div class="article-chronology-logo"><i class="fa <%= stage.stagetype.icon %>"></i></div>
+          <div class="article-chronology-date"><p><%= stage.date_time.strftime('%d.%m.%Y') %> <br/> <%=stage.date_time.strftime('%H:%M')%> </p></div>
+        </div>
+      </section>
+
+    <% end %>
+  <% end %>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+    });
+  </script>
+
+
+</section>
