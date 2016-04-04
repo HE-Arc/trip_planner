@@ -12,11 +12,11 @@
         <div class="colx2-container">
           <div class="colx2">
             <%= f.label :date_start %><br />
-            <%= f.date_select :date_start, :order => [:day, :month, :year] %>
+            <%= f.date_select :date_start, :order => [:day, :month, :year] , :include_blank => true %>
           </div>
           <div class="colx2 col2">
             <%= f.label :date_end %><br />
-            <%= f.date_select :date_end, :order => [:day, :month, :year] %>
+            <%= f.date_select :date_end, :order => [:day, :month, :year] , :include_blank => true %>
           </div>
         </div>
 

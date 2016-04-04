@@ -9,8 +9,8 @@
 
 userTest = User.create( :email => "guy@gmail.com", :password => "1234", :password_confirmation => "1234")
 
-Trip.create(title:"Voyage au Japon de Mama", description:"Margaux part en voyage", user: userTest)
-Trip.create(title:"Le pays des licornes", description:"Afin de découvrire cette race méconnue", user: userTest)
+Trip.create(title:"Voyage au Japon de Mama", description:"Margaux part en voyage", date_start:"2015-10-10", date_end:"2015-10-12", main_country:"Japan", user: userTest)
+Trip.create(title:"Le pays des licornes", description:"Afin de découvrir cette race méconnue", main_country:"DiscoveryLand", user: userTest)
 
 Stagetype.create(title:"Restauration", icon:"fa-cutlery")
 Stagetype.create(title:"Hôtel", icon:"fa-bed")
