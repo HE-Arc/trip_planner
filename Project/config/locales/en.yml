@@ -44,6 +44,11 @@ en:
   trip_list_view : "View the trip"
 
   trip_delete: "Delete"
+  trip_date_unknown: "Unknown"
+  trip_title_all: "All Trips"
+  trip_list_empty: "Currently no trip available"
+
+  trip_update_title: "Edit your trip"
 
   current_images: "Current images"
   add_images: "Add images"

@@ -5,7 +5,19 @@
       <div class="display-trip-content">
         <b><%= trip.title %></b><br/>
         <%= trip.description %><br/>
-        <i class="fa fa-calendar"></i> <%= trip.date_start.strftime("%d/%m/%y") %> - <%= trip.date_end.strftime("%d/%m/%y") %><br/>
+        <i class="fa fa-calendar"></i>
+          <% if !trip.date_start.nil? %>
+            <%= trip.date_start.strftime("%d/%m/%y") %>
+          <% else %>
+            <%= t('trip_date_unknown') %>
+          <% end %>
+          -
+          <% if !trip.date_end.nil? %>
+              <%= trip.date_end.strftime("%d/%m/%y") %>
+          <% else %>
+            <%= t('trip_date_unknown') %>
+          <% end %>
+          <br/>
         <i class="fa fa-globe"></i> <%= trip.main_country %>
       </div>
     </div>

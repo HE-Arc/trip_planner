@@ -1,7 +1,7 @@
 <% content_for :title, "Trips" %>
 
 <div class="center-content">
-  <h1>Tous les voyages</h1>
+  <h1><%= t('trip_title_all') %></h1>
 
   <% @trips.each do |trip| %>
 
@@ -14,19 +14,6 @@
   <% end %>
 
   <% if @trips.empty? %>
-    <p>Aucun voyage</p>
-  <% end %>
-
-  <br/>
-
-  <% if user_signed_in? %>
-    loged : <br/>
-    <%= current_user.email %> <br/>
-    <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
-
-  <% else %>
-
-      <%= link_to "Subscribe", new_user_registration_url %>
-      <%= link_to "Login", user_session_url %>
+    <p><%= t('trip_list_empty') %></p>
   <% end %>
 </div>
