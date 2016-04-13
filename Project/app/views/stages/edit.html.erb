@@ -19,7 +19,7 @@
   <div id="trip-insert-center">
     <h2><%= t('editArticle') %></h2>
 
-    <%= form_for([@trip, @stage]) do |f| %>
+    <%= form_for [@trip, @stage], :html => { multipart: true } do |f| %>
 
         <div class="colx2-container">
           <div class="colx2">
@@ -38,7 +38,7 @@
                       <%= "checked" %>
                     <%end%>
                   />
-                  <i class="fa <%=type.icon%>"> <%=type.title%></i>
+                  <span><i class="fa <%=type.icon%>"></i> <%=type.title%></span>
                 </div>
             <% end %>
           </div>
@@ -55,16 +55,39 @@
             <%= f.label :date_time %><br />
             <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
 
-            <%= f.label :image %><br />
-            <%= f.file_field :image %><br />
 
-            <p>Current : <%= image_tag @stage.image.url(:small) , :class => "article-img" %></p>
+            <label><%=t('add_images')%></label><br />
+            <%= file_field_tag "images[]", type: :file, multiple: true %> <br />
+
+            <label><%=t('current_images')%></label><br />
+            <div class="images-ctrl">
+            <%  @stage.image_stages.each do |photo| %>
+              <div class="image-ctrl">
+                <%= image_tag photo.image.url(:thumb) %>
+                <%= link_to '',
+                      [@trip, @stage, photo],
+                      :confirm => t('confirm'),
+                      :method => :delete,
+                      :class=>"fa fa-trash image-ctrl-btn"%>
+                </div>
+            <%end%>
+            </div>
 
 
           </div>
         </div>
+        <div class="center-text-content">
 
-        <%= f.submit t('edit') %>
+
+          <%= link_to(@trip) do %>
+              <div class="button-inline">
+                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> <%=t('cancel')%>
+              </div>
+          <% end %>
+
+          <%= f.submit t('save') %>
+        </div>
+
     <% end %>
 
     <% if flash[:alerts] %>

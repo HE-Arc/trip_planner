@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   root 'trips#index', as: 'index'
 
   resources :trips do
-    resources :stages
+    resources :stages do
+      resources :image_stage
+    end
   end
 
   get 'users/:id/trips' => 'trips#user_list', as: 'trip_from_user'

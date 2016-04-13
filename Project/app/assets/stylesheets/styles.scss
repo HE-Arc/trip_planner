@@ -1,4 +1,10 @@
 
+@font-face{
+  font-family: Lobster;
+  src: url(../fonts/Lobster.otf);
+}
+
+
 $mainColor : #00DED9;
 $light-zone : #e4e4e4;
 $lighter-zone : #f2f2f2;
@@ -20,6 +26,11 @@ body{
   flex-direction: column;
   margin: 0;
   padding: 0;
+
+  background-color: $mainColor-darker;
+
+  //background-image: url("../img/arches.png");
+  background-image: url(http://www.transparenttextures.com/patterns/shattered-dark.png);
 }
 
 main {
@@ -28,6 +39,10 @@ main {
 
 h1, h2, h3, p{
   font-family: "Century Gothic", Arial, sans-serif;
+}
+
+a{
+  text-decoration: none;
 }
 
 @mixin content-center(){
@@ -66,27 +81,32 @@ h1, h2, h3, p{
 #head-top{
   height: 60px;
   width: 100%;
-  background-color: white;
+  background-color: $mainColor-darker;
   position: relative;
 
-  text-align:center;
 
   -webkit-box-shadow: 0 1px 6px 0 rgba(0,0,0,0.3);
   box-shadow: 0 1px 6px 0 rgba(0,0,0,0.3);
+
+  background-image: url(http://www.transparenttextures.com/patterns/shattered-dark.png);
+
 }
 
 #head-top-center{
-  margin-left: auto;
-  margin-right: auto;
+  @include content-center();
 }
+
 .head-top-nav{
   display: inline-block;
 
   line-height: 60px;
   vertical-align: middle;
 
+  float: right;
+
 
   a{
+    text-align:center;
     color: $dark-touch;
     text-decoration:none;
     display: inline-block;
@@ -118,14 +138,17 @@ h1, h2, h3, p{
 }
 
 #head-top-logo{
+  text-align: center;
   display: inline-block;
   height: 50px;
   width: 50px;
   vertical-align: middle;
   line-height: 60px;
 
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-top: 5px;
+  margin-right: 15px;
+
+  float: left;
 
   background-color: $mainColor;
 
@@ -133,6 +156,21 @@ h1, h2, h3, p{
 
   i{
     font-size: 51px;
+  }
+}
+
+#head-top-title{
+  display: inline-block;
+  color: white;
+  font-family: Lobster;
+  margin-top: 0px;
+  line-height: 60px;
+  font-size: 30px;
+  vertical-align: bottom;
+
+  a{
+    text-decoration: none;
+    color: white;
   }
 }
 
@@ -144,6 +182,30 @@ h1, h2, h3, p{
   height: 100px;
   background-color: $mainColor;
   margin-bottom: 0px !important;
+}
+
+#head-travel-ctrl{
+  display: inline-block;
+  float: right;
+  line-height: 100px;
+  vertical-align: middle;
+}
+
+.little-ctrl-button{
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+  display: block;
+  vertical-align: middle;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  display: inline-block;
+
+  &:hover{
+    color:white;
+  }
 }
 
 #head-travel-center{
@@ -216,9 +278,7 @@ footer{
   background-color: $lighter-zone;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: solid;
-  border-bottom-color: $light-zone;
-  border-bottom-width: 1px;
+
 
   #info_address{
     text-align: right;
@@ -299,7 +359,8 @@ label{
 
 input[type="submit"]{
   width: 150px;
-  display: block;
+  display: inline-block;
+
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -349,6 +410,39 @@ input[type="submit"]{
   }
 }
 
+.images-ctrl{
+  position: relative;
+  .image-ctrl{
+    display: inline-block;
+  }
+  .image-ctrl-btn{
+    display: inline-block;
+    line-height: 48px;
+    vertical-align: top;
+    background-color: $dark-touch;
+    color: white;
+    @include border-radius(3px);
+
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-right: 10px;
+
+    text-decoration: none;
+
+    &:hover{
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+  img{
+    height: 48px;
+    margin-right: 0px;
+
+  }
+}
+
 .trip-insert-radio{
 
   position: relative;
@@ -368,7 +462,9 @@ input[type="submit"]{
     opacity: 0.5;
     z-index: 0;
   }
-
+  span{
+    font-family: "Century Gothic", Arial, Sans-Serif;
+  }
   :checked + i {
     opacity: 1;
   }
@@ -419,7 +515,8 @@ input[type="submit"]{
     padding-bottom: 10px;
   }
   .article-box{
-    background-color: $lighter-zone;
+    background-color: white;
+
     width: 100%;
     @include border-radius(10px);
     vertical-align: top;
@@ -427,6 +524,8 @@ input[type="submit"]{
     -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
     box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
 
+    position: relative;
+    display: table;
 
   }
   .article-chronology{
@@ -442,6 +541,8 @@ input[type="submit"]{
 
     p{
       font-size: 14px;
+      font-weight: bold;
+      color:white;
     }
   }
   .article-chronology-logo{
@@ -472,25 +573,64 @@ input[type="submit"]{
   }
 
   .article-img{
-    display: inline-block;
-
-
     background-color: $dark-touch;
-    width: 133px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
 
-    margin-left:10px;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-left:15px;
+    margin-top: 20px;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
   }
-  .article-content{
+  .article-gallery-thumbs{
+    margin-left: 15px;
+    margin-bottom: 15px;
+
+  }
+  .article-img-thumb{
+    width: 64px;
+    height: 48px;
+
     display: inline-block;
-    padding: 10px;
+
+    margin: 0;
+    padding: 0;
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+
+  .article-content{
+    //display: inline-block;
+    display: table-cell;
+    padding: 15px;
     vertical-align: top;
 
     h1, p{
       margin: 0;
     }
+    h1{
+      font-size: 26px;
+    }
+  }
+
+  .article-descr{
+    padding-bottom: 25px;
+    text-align: justify;
+  }
+  .article-lieu{
+    font-size: 12px;
+    color: $dark-touch;
+    position: absolute;
+    bottom: 20px;
+  }
+
+  .article-gallery{
+    display: table-cell;
+    width: 200px;
   }
 }
 
@@ -513,7 +653,7 @@ input[type="submit"]{
   }
   .trip-description-content{
 
-    background-color: $mainColor;
+    background-color: white;
     @include border-radius(5px);
     padding: 10px;
     margin-top: -15px;
@@ -591,20 +731,24 @@ input[type="submit"]{
   }
 
   p{
-    
-    font-size: 20px;
-    line-height: 20px;
-    margin: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 0;
+    line-height: 28px;
+    width: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    text-align: center;
+
 
     color: white;
     cursor: pointer;
   }
+  i{
+    line-height: 20px;
+    vertical-align: middle;
+    font-size: 30px;
+  }
 
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
+
 }
 
 
@@ -641,6 +785,14 @@ input[type="submit"]{
 
 .center-content{
   @include content-center();
+}
+
+.center-text-content{
+  text-align: center;
+}
+
+.imgLink{
+  text-decoration: none;
 }
 
 @mixin underscore-from-left() {
@@ -752,6 +904,11 @@ input[type="submit"]{
 
 .button {
   @include button();
+}
+.button-inline {
+  @include button();
+  display: inline-block;
+  min-width: 140px;
 }
 
 @media all and (max-width: $mobile-size) {

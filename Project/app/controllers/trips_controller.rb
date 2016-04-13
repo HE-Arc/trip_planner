@@ -12,7 +12,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
 
     @stage = Stage.new
-    @myStages = @trip.stages.order(:date_time).reverse_order
+    @my_stages = @trip.stages.order(:date_time).reverse_order
   end
 
   def new

@@ -3,6 +3,33 @@ $( document ).ready(function() {
     $( ".trip-insert-radio" ).click(function() {
         $(this).find('.rbtn').attr('checked', 'checked');
     });
+
+    $(".article-gallery").lightGallery();
+    $(".article-gallery-thumbs").lightGallery();
+
+
+    $('#trip-insert-frm').css('height', 0);
+
+    $("#open-frm-insert").click(function(){
+
+        var pannel = $('#trip-insert-frm');
+
+        var defaultHeight = pannel.height();
+        pannel.css('height', 'auto');
+
+        var autoHeight = pannel.height();
+        if(defaultHeight != 0){
+            autoHeight = 0;
+        }
+
+
+        pannel.css('height', defaultHeight);
+
+        pannel.animate({height: autoHeight}, 200);
+    });
+
+
+
 });
 
 //

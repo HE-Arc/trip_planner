@@ -24,17 +24,39 @@
       <%= @trip.user.username %></p>
     </div>
 
+    <div id="head-travel-ctrl">
+
+
+
+      <% if current_user == @trip.user && !current_user.nil? %>
+
+          <a href="#" class="little-ctrl-button" id="open-frm-insert">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </a>
+
+          <a href="<%=edit_trip_path(@trip.id)%>" class="little-ctrl-button">
+            <i class="fa fa-pencil"></i>
+          </a>
+
+          <!-- TODO -->
+          <a href="#" class="little-ctrl-button">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+
+      <% end %>
+
+
+    <div>
   </div>
 
 </section>
 
 <% if current_user == @trip.user && !current_user.nil? %>
   <section id="trip-insert-frm">
-
     <div id="trip-insert-center">
       <h2><%= t('insertArticle') %></h2>
 
-      <%= form_for([@trip, @stage]) do |f| %>
+      <%= form_for [@trip, @stage], :html => { multipart: true } do |f| %>
 
           <div class="colx2-container">
             <div class="colx2">
@@ -49,7 +71,7 @@
               <% Stagetype.all.each do |type| %>
                   <div class="trip-insert-radio">
                     <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>" />
-                    <i class="fa <%=type.icon%>"> <%=type.title%></i>
+                    <span><i class="fa <%=type.icon%>"></i> <%= type.title %></span>
                   </div>
               <% end %>
             </div>
@@ -67,12 +89,15 @@
               <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
 
               <%= f.label :image %><br />
-              <%= f.file_field :image %><br />
+
+              <%= file_field_tag "images[]", type: :file, multiple: true %> <br />
 
             </div>
           </div>
 
-          <%= f.submit t('insertButton') %>
+          <div class="center-text-content">
+            <%= f.submit t('insertButton') %>
+          </div>
       <% end %>
 
       <% if flash[:alerts] %>
@@ -88,58 +113,9 @@
 
 <div id="map"></div>
 
-<!--
-<section id="travel-map">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21706.357630712628!2d6.99744205!3d47.152082300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sch!4v1455634428914" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-</section>
--->
 
-
-
-<section id="articles">
-
-  <% if @myStages.empty? %>
-      <p>Aucun stage</p>
-  <% end %>
-
-  <% @myStages.each do |myStage| %>
-      <section class="article-line">
-        <article class="article-all-content">
-          <div class="article-box">
-
-            <%= image_tag myStage.image.url(:small) , :class => "article-img" %>
-            <div class="article-content">
-
-              <h1><%= myStage.title %></h1>
-              <p><%= myStage.description %></p>
-              <p class="article-lieu"><%= myStage.adress %></p>
-
-            </div>
-          </div>
-          <% if current_user == @trip.user && !current_user.nil? %>
-            <div class="article-control">
-              <%= link_to t('edit'),
-                          edit_trip_stage_path(@trip, myStage),
-                          :class=>"article-control-btn"%>
-              <%= link_to t('delete'),
-                          [@trip, myStage],
-                          confirm: "Are you sure?",
-                          :method => :delete,
-                          :class=>"article-control-btn"%>
-            </div>
-          <% end %>
-        </article>
-
-        <div class="article-chronology">
-          <div class="article-chronology-line">&nbsp;</div>
-          <div class="article-chronology-logo"><i class="fa <%= myStage.stagetype.icon %>"></i></div>
-          <div class="article-chronology-date"><p><%= myStage.date_time.strftime('%d.%m.%Y') %> <br/> <%=myStage.date_time.strftime('%H:%M')%> </p></div>
-        </div>
-      </section>
-  <% end %>
-
-</section>
-
+<%= render 'layouts/stages', collection: @my_stages  %>
+      
 <section id="trip-description">
   <div class="trip-description-center">
     <div class="trip-description-content">

@@ -1,6 +1,6 @@
 $(document).on('ready page:load', function () {
 
-	$('#user-pannel').css('height', 0);
+	$('#user-pannel').css('height', "0px");
 
 	$('#button-open-pannel').click(function(){
 

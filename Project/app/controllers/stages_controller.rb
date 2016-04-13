@@ -25,18 +25,26 @@ class StagesController < ApplicationController
     @stage = Stage.new(stage_params)
     @stage.trip = @trip
     if @stage.save
+
+      if params[:images]
+        params[:images].each { |image|
+          @stage.image_stages.create(image: image)
+        }
+      end
+
+
       redirect_to @trip
     else
       flash[:alerts] = @stage.errors.full_messages
 
-      @myStages = @trip.stages.order(:date_time).reverse_order
+      @my_stages = @trip.stages.order(:date_time).reverse_order
       render template: "trips/show"
     end
   end
 
   def destroy
     stage = Stage.find(params[:id])
-    stage.delete
+    stage.destroy
     redirect_to @trip
   end
 
@@ -46,6 +54,14 @@ class StagesController < ApplicationController
 
   def update
     stage = Stage.find(params[:id])
+
+    if params[:images]
+      params[:images].each { |image|
+        stage.image_stages.create(image: image)
+      }
+    end
+
+
     if stage.update_attributes(stage_params)
       # Handle a successful update.
       redirect_to @trip

@@ -12,6 +12,7 @@
 
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "styles.css" %>
+  <%= stylesheet_link_tag "lightgallery.js" %>
 </head>
 
 <body>
@@ -20,37 +21,23 @@
   <div id="head-top-center">
 
     <div id="head-top-center">
-
-      <div class="head-top-nav">
-
-        <%= link_to 'Accueil', index_path() %>
-
-        <% if user_signed_in? %>
-            <%= link_to 'Create Trip', create_new_trip_path() %>
-
-            <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
-        <% else %>
-
-            <%= link_to 'Connection', user_session_url %>
-
-        <% end %>
-        <!--<a href="#">link2</a>
-
-        <a href="#">link3</a>
-
-        <a href="#">link4</a>-->
-      </div>
-
       <div id="head-top-logo"><i class="fa fa-globe"></i></div>
 
+      <p id="head-top-title"><a href="<%=index_path()%>">Neeeed Holiday !</a></p>
+
       <div class="head-top-nav">
-        <a href="#">Recherche</a>
 
-        <!--<a href="#">link2</a>
 
-        <a href="#">link3</a>
+        <div id="button-open-pannel">
 
-        <a href="#">link4</a>-->
+          <% if user_signed_in? %>
+              <p><i class="fa fa-user"></i></p>
+          <% else %>
+              <p><i class="fa fa-sign-in"></i></p>
+          <% end %>
+
+        </div>
+
       </div>
 
     </div>
@@ -59,10 +46,7 @@
 
 </header>
 
-<main>
-
-
-  <% flash.each do |name, msg| %>
+<% flash.each do |name, msg| %>
       <% if msg.class == Array %>
           <div class="alert"><div class="center-content"><p>
           <% msg.each do |message| %>
@@ -78,54 +62,42 @@
               <div class="alert"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= alert %></p></div></div>
           <% end %>
       <% end %>
-  <% end %>
+<% end %>
 
-  <section id="user-pannel">
-    <div class="center-content">
-      <% if user_signed_in? %>
-        <div id="button-little">
-          <%= link_to 'Create Trip', create_new_trip_path() %>
-        </div>
-        <div id="button-little">
-          <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
-        </div>
-        <div id="button-little">
-          <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
-        </div>
-        <div id="info-user">
-          <p><%= current_user.username %></p>
-        </div>
-        <i class="fa fa-user" id="icon-user"></i>
-
-      <% else %>
-
-        <div id="button-little">
-          <%= link_to "Login", user_session_url %>
-        </div>
-        <div id="button-little">
-           <%= link_to "Subscribe", new_user_registration_url %>
-        </div>
-
-      <% end %>
-    </div>
-  </section>
-
-<div class="center-content">
-  <div id="button-open-pannel">
-
+<section id="user-pannel">
+  <div class="center-content">
     <% if user_signed_in? %>
-      <p><i class="fa fa-user"></i></p>
+      <div id="button-little">
+        <%= link_to 'Create Trip', create_new_trip_path() %>
+      </div>
+      <div id="button-little">
+        <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
+      </div>
+      <div id="button-little">
+        <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
+      </div>
+      <div id="info-user">
+        <p><%= current_user.email %></p>
+      </div>
+      <i class="fa fa-user" id="icon-user"></i>
+
     <% else %>
-      <p><i class="fa fa-sign-in"></i></p>
+
+      <div id="button-little">
+        <%= link_to "Login", user_session_url %>
+      </div>
+      <div id="button-little">
+         <%= link_to "Subscribe", new_user_registration_url %>
+      </div>
+
     <% end %>
-
   </div>
-</div>
+</section>
 
 
+  <%= yield %>
 
-<%= yield %>
-</main>
+
 
 
 <footer>
