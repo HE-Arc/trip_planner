@@ -23,21 +23,35 @@
       <p><i class="fa fa-user"></i> <%= @trip.user.email %></p>
     </div>
 
-    <% if current_user == @trip.user && !current_user.nil? %>
-      <div id="head-travel-ctrl">
+    <div id="head-travel-ctrl">
 
-        <a href="<%=edit_trip_path(@trip.id)%>" class="little-ctrl-button">
-          <i class="fa fa-pencil"></i>
-        </a>
-      <div>
-    <% end %>
+
+
+      <% if current_user == @trip.user && !current_user.nil? %>
+
+          <a href="#" class="little-ctrl-button" id="open-frm-insert">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </a>
+
+          <a href="<%=edit_trip_path(@trip.id)%>" class="little-ctrl-button">
+            <i class="fa fa-pencil"></i>
+          </a>
+
+          <!-- TODO -->
+          <a href="#" class="little-ctrl-button">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+
+      <% end %>
+
+
+    <div>
   </div>
 
 </section>
 
 <% if current_user == @trip.user && !current_user.nil? %>
   <section id="trip-insert-frm">
-
     <div id="trip-insert-center">
       <h2><%= t('insertArticle') %></h2>
 

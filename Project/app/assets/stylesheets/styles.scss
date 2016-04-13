@@ -201,6 +201,8 @@ a{
   padding-left: 10px;
   padding-right: 10px;
 
+  display: inline-block;
+
   &:hover{
     color:white;
   }
@@ -276,9 +278,7 @@ footer{
   background-color: $lighter-zone;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: solid;
-  border-bottom-color: $light-zone;
-  border-bottom-width: 1px;
+
 
   #info_address{
     text-align: right;

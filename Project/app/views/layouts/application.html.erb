@@ -28,8 +28,6 @@
       <div class="head-top-nav">
 
 
-
-
         <div id="button-open-pannel">
 
           <% if user_signed_in? %>
@@ -42,14 +40,13 @@
 
       </div>
 
-
     </div>
 
   </div>
 
 </header>
 
-<main>
+
 
 <% if !notice.nil? %>
   <div class="notice"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= notice %></p></div></div>
@@ -59,44 +56,40 @@
 <% end %>
 
 
-  <section id="user-pannel">
-    <div class="center-content">
-      <% if user_signed_in? %>
-        <div id="button-little">
-          <%= link_to 'Create Trip', create_new_trip_path() %>
-        </div>
-        <div id="button-little">
-          <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
-        </div>
-        <div id="button-little">
-          <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
-        </div>
-        <div id="info-user">
-          <p><%= current_user.email %></p>
-        </div>
-        <i class="fa fa-user" id="icon-user"></i>
+<section id="user-pannel">
+  <div class="center-content">
+    <% if user_signed_in? %>
+      <div id="button-little">
+        <%= link_to 'Create Trip', create_new_trip_path() %>
+      </div>
+      <div id="button-little">
+        <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
+      </div>
+      <div id="button-little">
+        <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
+      </div>
+      <div id="info-user">
+        <p><%= current_user.email %></p>
+      </div>
+      <i class="fa fa-user" id="icon-user"></i>
 
-      <% else %>
+    <% else %>
 
-        <div id="button-little">
-          <%= link_to "Login", user_session_url %>
-        </div>
-        <div id="button-little">
-           <%= link_to "Subscribe", new_user_registration_url %>
-        </div>
+      <div id="button-little">
+        <%= link_to "Login", user_session_url %>
+      </div>
+      <div id="button-little">
+         <%= link_to "Subscribe", new_user_registration_url %>
+      </div>
 
-      <% end %>
-    </div>
-  </section>
-
-<div class="center-content">
-
-</div>
+    <% end %>
+  </div>
+</section>
 
 
+  <%= yield %>
 
-<%= yield %>
-</main>
+
 
 
 <footer>
