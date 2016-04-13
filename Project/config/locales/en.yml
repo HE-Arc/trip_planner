@@ -56,6 +56,17 @@ en:
   save: "Save"
   cancel : "Cancel"
 
+  trip_creation_success : "The trip was perfectly created!"
+  trip_creation_not_connected : "You must be connected to create a trip."
+  trip_edition_success : "The trip was correctly edited!"
+  trip_edition_not_owner : "You can not update someone else's trip"
+  trip_edition_not_connected : "You must be connected to edit a trip"
+  trip_removal_success : "Trip correctly deleted"
+  trip_removal_not_owner : "You can not delete someone else's trip"
+  trip_removal_not_connected : "You must be connected to download a trip"
+
+  stage_no_score : "0 = No Score"
+
   activerecord:
       models:
         stage: trip stage

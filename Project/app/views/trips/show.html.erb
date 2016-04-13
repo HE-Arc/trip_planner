@@ -45,7 +45,7 @@
       <% end %>
 
 
-    <div>
+    </div>
   </div>
 
 </section>
@@ -86,6 +86,9 @@
 
               <%= f.label :date_time %><br />
               <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
+
+              <%= f.label :score %> (<%= t('stage_no_score')%>)<br />
+              <%= f.range_field :score, in: 0..5, step: 1, :oninput => "sliderShowValue(this.value)", :value => 0 %> <span id="score">0</span><br /><br />
 
               <%= f.label :image %><br />
 
@@ -132,5 +135,10 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Dp3v9OvUEEhePVbi3FoKCHrwpC2Yhhs&callback=initGeo">
 </script>
 
-
+<script type="text/javascript">
+  function sliderShowValue(newValue)
+  {
+    document.getElementById("score").innerHTML=newValue;
+  }
+</script>
 

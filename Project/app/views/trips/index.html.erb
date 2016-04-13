@@ -6,11 +6,7 @@
   <% @trips.each do |trip| %>
 
       <%= render :template => 'trips/_show_element', :locals => { :trip => trip } %>
-      <%= link_to(trip) do %>
-          <div class="display-trip-buttons-right">
-            <%= t('trip_list_view') %>
-          </div>
-      <% end %>
+
   <% end %>
 
   <% if @trips.empty? %>

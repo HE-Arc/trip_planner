@@ -25,14 +25,14 @@ class TripsController < ApplicationController
       @trip.user = current_user
 
       if @trip.save
-        flash.notice = "Win!"
+        flash.notice = t('trip_creation_success')
         redirect_to action: :index
       else
         flash.alert = @trip.errors.full_messages
         redirect_to action: :new
       end
     else
-      flash.alert = "Must be connected"
+      flash.alert = t('trip_creation_not_connected')
       redirect_to action: :index
     end
   end
@@ -46,15 +46,15 @@ class TripsController < ApplicationController
       @trip = Trip.find(params[:id])
       if current_user.id == @trip.user_id
         if @trip.update(params[:trip])
-          flash.notice = "Win!"
+          flash.notice = t('trip_edition_success')
           else
             render 'edit'
         end
       else
-        flash.alert = "Cannot update someone else's trip"
+        flash.alert = t('trip_edition_not_owner')
       end
     else
-      flash.alert = "Must be connected to edit a trip"
+      flash.alert = t('trip_edition_not_connected')
     end
     redirect_to action: :index
   end
@@ -67,12 +67,12 @@ class TripsController < ApplicationController
           stage.delete
         end
         Trip.find(params[:id]).delete
-        flash.notice = "Deleted"
+        flash.notice = t('trip_removal_success')
       else
-        flash.alert = "Not your trip"
+        flash.alert = t('trip_removal_not_owner')
       end
     else
-      flash.alert = "Not connected"
+      flash.alert = t('trip_removal_not_connected')
     end
     redirect_to action: :index
   end
