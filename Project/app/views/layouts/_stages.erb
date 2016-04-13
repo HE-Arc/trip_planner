@@ -15,7 +15,6 @@
             <% if !stage.image_stages.empty?  %>
               <div class="article-gallery">
 
-
                 <a href="<%= stage.image_stages[0].image.url(:big) %>" class="imgLink">
                   <%= image_tag stage.image_stages[0].image.url(:small), :class => "article-img" %>
                 </a>

@@ -4,7 +4,6 @@ $( document ).ready(function() {
         $(this).find('.rbtn').attr('checked', 'checked');
     });
 
-
     $(".article-gallery").lightGallery();
     $(".article-gallery-thumbs").lightGallery();
 

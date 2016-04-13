@@ -53,6 +53,9 @@ en:
   current_images: "Current images"
   add_images: "Add images"
 
+  save: "Save"
+  cancel : "Cancel"
+
   activerecord:
       models:
         stage: trip stage

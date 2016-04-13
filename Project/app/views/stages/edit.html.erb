@@ -76,8 +76,18 @@
 
           </div>
         </div>
+        <div class="center-text-content">
 
-        <%= f.submit t('edit') %>
+
+          <%= link_to(@trip) do %>
+              <div class="button-inline">
+                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> <%=t('cancel')%>
+              </div>
+          <% end %>
+
+          <%= f.submit t('save') %>
+        </div>
+
     <% end %>
 
     <% if flash[:alerts] %>

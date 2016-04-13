@@ -41,6 +41,10 @@ h1, h2, h3, p{
   font-family: "Century Gothic", Arial, sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
+
 @mixin content-center(){
   max-width: 1000px;
   margin-left: auto;
@@ -353,7 +357,8 @@ label{
 
 input[type="submit"]{
   width: 150px;
-  display: block;
+  display: inline-block;
+
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -780,6 +785,10 @@ input[type="submit"]{
   @include content-center();
 }
 
+.center-text-content{
+  text-align: center;
+}
+
 .imgLink{
   text-decoration: none;
 }
@@ -885,6 +894,11 @@ input[type="submit"]{
 
 .button {
   @include button();
+}
+.button-inline {
+  @include button();
+  display: inline-block;
+  min-width: 140px;
 }
 
 @media all and (max-width: $mobile-size) {
