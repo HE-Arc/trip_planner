@@ -21,38 +21,27 @@
   <div id="head-top-center">
 
     <div id="head-top-center">
-
-      <div class="head-top-nav">
-
-        <%= link_to 'Accueil', index_path() %>
-
-        <% if user_signed_in? %>
-            <%= link_to 'Create Trip', create_new_trip_path() %>
-
-            <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
-        <% else %>
-
-            <%= link_to 'Connection', user_session_url %>
-
-        <% end %>
-        <!--<a href="#">link2</a>
-
-        <a href="#">link3</a>
-
-        <a href="#">link4</a>-->
-      </div>
-
       <div id="head-top-logo"><i class="fa fa-globe"></i></div>
 
+      <p id="head-top-title"><a href="<%=index_path()%>">Neeeed Holiday !</a></p>
+
       <div class="head-top-nav">
-        <a href="#">Recherche</a>
 
-        <!--<a href="#">link2</a>
 
-        <a href="#">link3</a>
 
-        <a href="#">link4</a>-->
+
+        <div id="button-open-pannel">
+
+          <% if user_signed_in? %>
+              <p><i class="fa fa-user"></i></p>
+          <% else %>
+              <p><i class="fa fa-sign-in"></i></p>
+          <% end %>
+
+        </div>
+
       </div>
+
 
     </div>
 
@@ -101,15 +90,7 @@
   </section>
 
 <div class="center-content">
-  <div id="button-open-pannel">
 
-    <% if user_signed_in? %>
-      <p><i class="fa fa-user"></i></p>
-    <% else %>
-      <p><i class="fa fa-sign-in"></i></p>
-    <% end %>
-
-  </div>
 </div>
 
 

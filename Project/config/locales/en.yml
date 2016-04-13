@@ -45,6 +45,9 @@ en:
 
   trip_delete: "Delete"
 
+  current_images: "Current images"
+  add_images: "Add images"
+
   activerecord:
       models:
         stage: trip stage

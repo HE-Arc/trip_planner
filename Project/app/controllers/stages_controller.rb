@@ -27,7 +27,6 @@ class StagesController < ApplicationController
     if @stage.save
 
       if params[:images]
-        #http://www.railscook.com/recipes/multiple-files-upload-with-nested-resource-using-paperclip-in-rails/
         params[:images].each { |image|
           @stage.image_stages.create(image: image)
         }
@@ -45,7 +44,7 @@ class StagesController < ApplicationController
 
   def destroy
     stage = Stage.find(params[:id])
-    stage.delete
+    stage.destroy
     redirect_to @trip
   end
 
@@ -55,6 +54,14 @@ class StagesController < ApplicationController
 
   def update
     stage = Stage.find(params[:id])
+
+    if params[:images]
+      params[:images].each { |image|
+        stage.image_stages.create(image: image)
+      }
+    end
+
+
     if stage.update_attributes(stage_params)
       # Handle a successful update.
       redirect_to @trip

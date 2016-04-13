@@ -12,23 +12,27 @@
         <article class="article-all-content">
           <div class="article-box">
 
+            <% if !stage.image_stages.empty?  %>
+              <span class="article-gallery">
 
 
-            <span id="lightgallery">
-
-              <% stage.image_stages.each do |image| %>
-
-                <a href="<%= image.image.url(:big) %>" class="imgLink">
-                  <%= image_tag image.image.url(:small), :class => "article-img" %>
+                <a href="<%= stage.image_stages[0].image.url(:big) %>" class="imgLink">
+                  <%= image_tag stage.image_stages[0].image.url(:small), :class => "article-img" %>
                 </a>
-
-              <%end%>
-            </span>
+                <div class="article-gallery-thumbs">
+                  <% stage.image_stages.each do |photo| %>
+                    <a href="<%= photo.image.url(:big) %>" class="imgLink">
+                      <%= image_tag photo.image.url(:thumb), :class => "article-img-thumb" %>
+                    </a>
+                  <%end%>
+                </div>
+              </span>
+            <%end%>
 
             <div class="article-content">
 
               <h1><%= stage.title %></h1>
-              <p><%= stage.description %></p>
+              <p class="article-descr"><%= stage.description %></p>
               <p class="article-lieu"><%= stage.adress %></p>
 
             </div>
@@ -58,8 +62,12 @@
   <% end %>
 
   <script type="text/javascript">
+
+    //todo : sortir
+
     $(document).ready(function() {
-        $("#lightgallery").lightGallery(); 
+        $(".article-gallery").lightGallery();
+        $(".article-gallery-thumbs").lightGallery();
     });
   </script>
 

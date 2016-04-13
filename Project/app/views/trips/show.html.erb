@@ -11,6 +11,14 @@
       <p>Author</p>
     </div>
 
+    <% if current_user == @trip.user && !current_user.nil? %>
+      <div id="head-travel-ctrl">
+
+        <a href="<%=edit_trip_path(@trip.id)%>" class="little-ctrl-button">
+          <i class="fa fa-pencil"></i>
+        </a>
+      <div>
+    <% end %>
   </div>
 
 </section>

@@ -3,7 +3,7 @@ class Stage < ActiveRecord::Base
   belongs_to :trip
   belongs_to :stagetype
 
-  has_many :image_stages, :dependent => :destroy
+  has_many :image_stages, :dependent => :delete_all
 
   validates :title,
             presence: true,
