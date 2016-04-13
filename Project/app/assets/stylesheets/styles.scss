@@ -581,6 +581,7 @@ input[type="submit"]{
   .article-gallery-thumbs{
     margin-left: 15px;
     margin-bottom: 15px;
+
   }
   .article-img-thumb{
     width: 64px;
@@ -621,8 +622,8 @@ input[type="submit"]{
   }
 
   .article-gallery{
-    display: tab-cell;
-
+    display: table-cell;
+    width: 200px;
   }
 }
 

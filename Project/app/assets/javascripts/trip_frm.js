@@ -3,6 +3,11 @@ $( document ).ready(function() {
     $( ".trip-insert-radio" ).click(function() {
         $(this).find('.rbtn').attr('checked', 'checked');
     });
+
+
+    $(".article-gallery").lightGallery();
+    $(".article-gallery-thumbs").lightGallery();
+
 });
 
 //

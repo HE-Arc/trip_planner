@@ -13,7 +13,7 @@
           <div class="article-box">
 
             <% if !stage.image_stages.empty?  %>
-              <span class="article-gallery">
+              <div class="article-gallery">
 
 
                 <a href="<%= stage.image_stages[0].image.url(:big) %>" class="imgLink">
@@ -26,7 +26,7 @@
                     </a>
                   <%end%>
                 </div>
-              </span>
+              </div>
             <%end%>
 
             <div class="article-content">
@@ -61,15 +61,6 @@
     <% end %>
   <% end %>
 
-  <script type="text/javascript">
-
-    //todo : sortir
-
-    $(document).ready(function() {
-        $(".article-gallery").lightGallery();
-        $(".article-gallery-thumbs").lightGallery();
-    });
-  </script>
 
 
 </section>
