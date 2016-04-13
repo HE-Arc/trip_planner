@@ -38,10 +38,9 @@
             <i class="fa fa-pencil"></i>
           </a>
 
-          <!-- TODO -->
-          <a href="#" class="little-ctrl-button">
+          <%= link_to @trip, :method=>:delete, data: {:confirm => 'Are you sure?'}, :class=>"little-ctrl-button" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
+          <% end %>
 
       <% end %>
 
