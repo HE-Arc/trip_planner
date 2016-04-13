@@ -5,7 +5,7 @@
 
   <% @trips.each do |trip| %>
 
-      <%= render :template => 'trips/show_trip_listing', :locals => { :trip => trip } %>
+      <%= render :template => 'trips/_show_element', :locals => { :trip => trip } %>
 
   <% end %>
 

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'trips/new' => 'trips#new', as: 'create_new_trip'
 
+  #devise_for :users, :controllers => { registrations: 'registrations' }
+
   #get 'trips/:id_trip/edit_stage/:id_stage' => 'trips#edit_stage', :as => 'edit_stage'
 
   # Example of regular route:

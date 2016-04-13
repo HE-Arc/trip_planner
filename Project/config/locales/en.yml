@@ -59,3 +59,6 @@ en:
             adress: "Local address"
             date_time: "Date and time"
             stagetype_id: "Type"
+         trip:
+            date_start: "Start Date"
+            date_end: "End Date"

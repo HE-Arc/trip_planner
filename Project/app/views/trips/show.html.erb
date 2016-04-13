@@ -8,19 +8,20 @@
     <div id="head-travel-descr">
       <p><%= @trip.title %></p>
       <p><i class="fa fa-calendar"></i>
-        <% if !@trip.date_start.nil?
-             @trip.date_start.strftime("%d/%m/%y")
-           else %>
-            <%= t('trip_date_unknown') %>
-        <% end %>
+        <%= if !@trip.date_start.nil?
+           @trip.date_start.strftime("%d/%m/%y")
+         else
+           t('trip_date_unknown')
+         end %>
         -
-        <% if !@trip.date_end.nil?
-             @trip.date_end.strftime("%d/%m/%y")
-           else %>
-            <%= t('trip_date_unknown') %>
-        <% end %>
+        <%= if !@trip.date_end.nil?
+            @trip.date_end.strftime("%d/%m/%y")
+        else
+            t('trip_date_unknown')
+        end %>
         <br/></p>
-      <p><i class="fa fa-user"></i> <%= @trip.user.email %></p>
+      <p><i class="fa fa-user"></i>
+      <%= @trip.user.username %></p>
     </div>
 
   </div>

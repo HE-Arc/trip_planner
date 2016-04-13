@@ -61,13 +61,24 @@
 
 <main>
 
-<% if !notice.nil? %>
-  <div class="notice"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= notice %></p></div></div>
-<% end %>
-<% if !alert.nil? %>
-  <div class="alert"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= alert %></p></div></div>
-<% end %>
 
+  <% flash.each do |name, msg| %>
+      <% if msg.class == Array %>
+          <div class="alert"><div class="center-content"><p>
+          <% msg.each do |message| %>
+                <i class="fa fa-exclamation-triangle"></i> <%= message %><br/>
+          <% end %>
+          </p></div></div>
+          <% flash[:alert] = nil %>
+      <% else %>
+        <% if !flash["notice"].nil? %>
+              <div class="notice"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= notice %></p></div></div>
+          <% end %>
+          <% if !flash["alert"].nil? %>
+              <div class="alert"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= alert %></p></div></div>
+          <% end %>
+      <% end %>
+  <% end %>
 
   <section id="user-pannel">
     <div class="center-content">
@@ -82,7 +93,7 @@
           <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
         </div>
         <div id="info-user">
-          <p><%= current_user.email %></p>
+          <p><%= current_user.username %></p>
         </div>
         <i class="fa fa-user" id="icon-user"></i>
 
