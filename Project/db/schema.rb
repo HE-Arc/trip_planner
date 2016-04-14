@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403081707) do
+ActiveRecord::Schema.define(version: 20160413154737) do
 
   create_table "image_stages", force: :cascade do |t|
     t.datetime "created_at",                     null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160403081707) do
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
     t.integer  "stagetype_id",       limit: 4
+    t.integer  "score",              limit: 4
   end
 
   add_index "stages", ["stagetype_id"], name: "index_stages_on_stagetype_id", using: :btree
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160403081707) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "username",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -56,6 +56,17 @@ en:
   save: "Save"
   cancel : "Cancel"
 
+  trip_creation_success : "The trip was perfectly created!"
+  trip_creation_not_connected : "Please sign in to create a trip."
+  trip_edition_success : "The trip was successfully updated."
+  trip_edition_not_owner : "You can not update someone else's trip."
+  trip_edition_not_connected : "Please sign in to update a trip."
+  trip_removal_success : "The trip was successfully deleted."
+  trip_removal_not_owner : "You can not delete someone else's trip"
+  trip_removal_not_connected : "Please sign in to remove a trip."
+
+  stage_no_score : "0 = No Score"
+
   activerecord:
       models:
         stage: trip stage
@@ -67,3 +78,6 @@ en:
             adress: "Local address"
             date_time: "Date and time"
             stagetype_id: "Type"
+         trip:
+            date_start: "Start Date"
+            date_end: "End Date"

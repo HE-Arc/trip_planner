@@ -1,8 +1,8 @@
-<div class="display-trip">
-  <div class="display-trip-top">
+<div class="display-box">
+  <div class="display-box-top">
     <div>
-      <%= image_tag "http://www.officeholidays.com/images/slider/japan_03.jpg", alt: trip.title, id: trip.id, class: "display-trip-img" %>
-      <div class="display-trip-content">
+      <%= image_tag "http://www.officeholidays.com/images/slider/japan_03.jpg", alt: trip.title, id: trip.id, class: "display-box-img" %>
+      <div class="display-box-content">
         <b><%= trip.title %></b><br/>
         <%= trip.description %><br/>
         <i class="fa fa-calendar"></i>
@@ -22,8 +22,8 @@
       </div>
     </div>
   </div>
-  <div class="display-trip-buttons">
-    <div class="display-trip-buttons-left">
+  <div class="display-box-buttons">
+    <div class="display-box-buttons-left">
       <% if !current_user.nil? && current_user == trip.user %>
           <i class="fa fa-pencil"></i> <%= link_to t('trip_personnal_edit'), edit_trip_path(trip.id) %>
       <% else %>
@@ -31,7 +31,7 @@
       <% end %>
     </div>
     <%= link_to(trip) do %>
-        <div class="display-trip-buttons-right">
+        <div class="display-box-buttons-right">
           <%= t('trip_list_view') %>
         </div>
     <% end %>

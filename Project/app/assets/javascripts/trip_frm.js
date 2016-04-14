@@ -93,3 +93,8 @@ function geocodeAddress(geocoder) {
         }
     });
 }
+
+function sliderShowValue(newValue)
+{
+    document.getElementById("score").innerHTML=newValue;
+}

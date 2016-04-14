@@ -209,11 +209,7 @@
 
   <% @trips.each do |trip| %>
 
-      <%= link_to(trip) do %>
-          <div class="display-trip-buttons-right">
-            <%= t('trip_list_view') %>
-          </div>
-      <% end %>
+      <%= render :template => 'trips/_show_element', :locals => { :trip => trip } %>
 
   <% end %>
 

@@ -8,19 +8,20 @@
     <div id="head-travel-descr">
       <p><%= @trip.title %></p>
       <p><i class="fa fa-calendar"></i>
-        <% if !@trip.date_start.nil?
-             @trip.date_start.strftime("%d/%m/%y")
-           else %>
-            <%= t('trip_date_unknown') %>
-        <% end %>
+        <%= if !@trip.date_start.nil?
+           @trip.date_start.strftime("%d/%m/%y")
+         else
+           t('trip_date_unknown')
+         end %>
         -
-        <% if !@trip.date_end.nil?
-             @trip.date_end.strftime("%d/%m/%y")
-           else %>
-            <%= t('trip_date_unknown') %>
-        <% end %>
+        <%= if !@trip.date_end.nil?
+            @trip.date_end.strftime("%d/%m/%y")
+        else
+            t('trip_date_unknown')
+        end %>
         <br/></p>
-      <p><i class="fa fa-user"></i> <%= @trip.user.email %></p>
+      <p><i class="fa fa-user"></i>
+      <%= @trip.user.username %></p>
     </div>
 
     <div id="head-travel-ctrl">
@@ -37,15 +38,14 @@
             <i class="fa fa-pencil"></i>
           </a>
 
-          <!-- TODO -->
-          <a href="#" class="little-ctrl-button">
+          <%= link_to @trip, :method=>:delete, data: {:confirm => 'Are you sure?'}, :class=>"little-ctrl-button" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
-          </a>
+          <% end %>
 
       <% end %>
 
 
-    <div>
+    </div>
   </div>
 
 </section>
@@ -86,6 +86,9 @@
 
               <%= f.label :date_time %><br />
               <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
+
+              <%= f.label :score %> (<%= t('stage_no_score')%>)<br />
+              <%= f.range_field :score, in: 0..5, step: 1, :oninput => "sliderShowValue(this.value)", :value => 0 %> <span id="score">0</span><br /><br />
 
               <%= f.label :image %><br />
 
