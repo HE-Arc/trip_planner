@@ -15,6 +15,15 @@ class TripsController < ApplicationController
     @my_stages = @trip.stages.order(:date_time).reverse_order
   end
 
+  def randtrip
+    trip = Trip.first
+
+    response = { :trip => trip, :stages => trip.stages, :user => trip.user }
+    respond_to do |format|
+      format.json  { render :json => response }
+    end
+  end
+
   def new
     @trip = Trip.new
   end

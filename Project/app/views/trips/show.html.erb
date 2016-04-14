@@ -51,7 +51,7 @@
 </section>
 
 <% if current_user == @trip.user && !current_user.nil? %>
-  <section id="trip-insert-frm">
+  <section id="trip-insert-frm" class="trip-frm">
     <div id="trip-insert-center">
       <h2><%= t('insertArticle') %></h2>
 
@@ -100,7 +100,7 @@
       <% end %>
 
       <% if flash[:alerts] %>
-          <ul>
+          <ul id="frm-errors">
             <% flash[:alerts].each do |alert| %>
                 <li><%= alert %></li>
             <% end %>
@@ -113,16 +113,22 @@
 <div id="map"></div>
 
 
-<%= render 'layouts/stages', collection: @my_stages  %>
+<section id="articles-zone">
+
+  <%= render 'layouts/stages', collection: @my_stages  %>
+
+
       
-<section id="trip-description">
-  <div class="trip-description-center">
-    <div class="trip-description-content">
+  <section id="trip-description">
+    <div class="trip-description-center">
+      <div class="trip-description-content">
 
-      <p><%= @trip.description %></p>
+        <p><%= @trip.description %></p>
+      </div>
+
     </div>
+  </section>
 
-  </div>
 </section>
 
 <%= javascript_include_tag 'trip_frm'%>
@@ -131,6 +137,3 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Dp3v9OvUEEhePVbi3FoKCHrwpC2Yhhs&callback=initGeo">
 </script>
-
-
-
