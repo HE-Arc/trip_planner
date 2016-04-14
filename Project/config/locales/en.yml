@@ -57,13 +57,13 @@ en:
   cancel : "Cancel"
 
   trip_creation_success : "The trip was perfectly created!"
-  trip_creation_not_connected : "You must be connected to create a trip."
-  trip_edition_success : "The trip was correctly edited!"
-  trip_edition_not_owner : "You can not update someone else's trip"
-  trip_edition_not_connected : "You must be connected to edit a trip"
-  trip_removal_success : "Trip correctly deleted"
+  trip_creation_not_connected : "Please sign in to create a trip."
+  trip_edition_success : "The trip was successfully updated."
+  trip_edition_not_owner : "You can not update someone else's trip."
+  trip_edition_not_connected : "Please sign in to update a trip."
+  trip_removal_success : "The trip was successfully deleted."
   trip_removal_not_owner : "You can not delete someone else's trip"
-  trip_removal_not_connected : "You must be connected to download a trip"
+  trip_removal_not_connected : "Please sign in to remove a trip."
 
   stage_no_score : "0 = No Score"
 
