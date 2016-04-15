@@ -37,17 +37,6 @@ $( document ).ready(function() {
 // Frm find place (MAPS API)
 //
 
-function initGeo() {
-    var geocoder = new google.maps.Geocoder();
-
-    $('#find_addr').focusout(function() {
-        geocodeAddress(geocoder);
-    });
-
-    //initialize maps (trip_map.js)
-    initMap();
-}
-
 function initGeoEdit() {
     var geocoder = new google.maps.Geocoder();
 

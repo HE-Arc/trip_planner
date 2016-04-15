@@ -6,6 +6,10 @@
 
     <div id="head-travel-img">&nbsp;</div>
     <div id="head-travel-descr">
+
+      <span class="hidden" id="trip_id"><%= @trip.id %></span>
+
+
       <p><%= @trip.title %></p>
       <p><i class="fa fa-calendar"></i>
         <%= if !@trip.date_start.nil?

@@ -15,8 +15,13 @@ class TripsController < ApplicationController
     @my_stages = @trip.stages.order(:date_time).reverse_order
   end
 
-  def randtrip
-    trip = Trip.first
+  def maptrip
+
+    if !params.has_key?(:id)
+      trip = Trip.first
+    else
+      trip = Trip.find(params[:id])
+    end
 
     response = { :trip => trip, :stages => trip.stages, :user => trip.user }
     respond_to do |format|

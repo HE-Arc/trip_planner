@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'randtrip' => 'trips#randtrip', defaults: {format: :json}
+  get 'maptrip(/:id)' => 'trips#maptrip', defaults: {format: :json}
 
   get 'users/:id/trips' => 'trips#user_list', as: 'trip_from_user'
 
