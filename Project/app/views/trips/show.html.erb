@@ -4,7 +4,7 @@
 
   <div id="head-travel-center">
 
-    <div id="head-travel-img">&nbsp;</div>
+    <div id="head-travel-img"><%= image_tag @trip.image.url(:small) %></div>
     <div id="head-travel-descr">
       <p><%= @trip.title %></p>
       <p><i class="fa fa-calendar"></i>

@@ -96,6 +96,7 @@ a{
 
 #head-top-center{
   @include content-center();
+  height: inherit;
 }
 
 .head-top-nav{
@@ -220,6 +221,8 @@ a{
   margin-right: 20px;
   @include border-radius(40px);
 
+  overflow: hidden;
+
   background-color: $dark-touch;
   width: 80px;
   height: 80px;
@@ -246,6 +249,7 @@ footer{
     @include content-center();
     width: 100%;
   }
+
   .footer-col{
     display: table-cell;
     width: 33%;
@@ -253,7 +257,7 @@ footer{
     padding-left: 15px;
     padding-right: 15px;
 
-    h1{
+    h2{
       font-size: 18px;
       color: $dark-touch;
     }
@@ -267,6 +271,24 @@ footer{
     border-right: dashed;
     border-color: $dark-touch;
     border-width: 1px;
+  }
+
+  .col3 {
+    text-align: right;
+  }
+
+  .footer-citation {
+    color: white !important;
+    font-family: Lobster;
+    font-size: 20px !important;
+    text-align: center;
+  }
+
+  .footer-citation-author {
+    margin-top: -15px;
+    color: white !important;
+    text-align: right !important;
+    font-size : 10px;
   }
 }
 
@@ -849,6 +871,7 @@ input[type="submit"]{
   overflow: hidden;
   height: 100%;
   margin: 1%;
+  min-width: 500px;
 
   .display-box-top {
     margin: 10px;

@@ -1,7 +1,7 @@
 <div class="display-box">
   <div class="display-box-top">
     <div>
-      <%= image_tag "http://www.officeholidays.com/images/slider/japan_03.jpg", alt: trip.title, id: trip.id, class: "display-box-img" %>
+      <%= image_tag trip.image.url(:big), alt: trip.title, id: trip.id, class: "display-box-img" %>
       <div class="display-box-content">
         <b><%= trip.title %></b><br/>
         <%= trip.description %><br/>

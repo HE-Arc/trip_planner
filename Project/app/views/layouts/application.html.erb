@@ -20,7 +20,6 @@
 
   <div id="head-top-center">
 
-    <div id="head-top-center">
       <div id="head-top-logo"><i class="fa fa-globe"></i></div>
 
       <p id="head-top-title"><a href="<%=index_path()%>">Neeeed Holiday !</a></p>
@@ -39,8 +38,6 @@
         </div>
 
       </div>
-
-    </div>
 
   </div>
 
@@ -74,7 +71,7 @@
         <%= link_to 'My Trips', trip_from_user_path(current_user.id) %>
       </div>
       <div id="button-little">
-        <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
+        <%= link_to 'Logout', destroy_user_session_url, :method => :delete %>
       </div>
       <div id="info-user">
         <p><%= current_user.username %></p>
@@ -84,10 +81,10 @@
     <% else %>
 
       <div id="button-little">
-        <%= link_to "Login", user_session_url %>
+        <%= link_to 'Login', user_session_url %>
       </div>
       <div id="button-little">
-         <%= link_to "Subscribe", new_user_registration_url %>
+         <%= link_to 'Subscribe', new_user_registration_url %>
       </div>
 
     <% end %>
@@ -96,26 +93,6 @@
 
   <%= yield %>
 
-<footer>
-  <div id="footer-center">
-
-    <div class="footer-col col1">
-      <h1>About</h1>
-      <p>Copyright (c) All right reserved to : <br/>
-        Margaux Divernois<br/>
-        Steve Visinand<br/>
-        Nicolas Gonin</p>
-    </div>
-    <div class="footer-col col2">
-      <h1>Contact</h1>
-    </div>
-    <div class="footer-col col3">
-      <h1>Hello col3</h1>
-    </div>
-
-  </div>
-</footer>
-
-
+  <%= render 'layouts/footer' %>
 
 </body>
