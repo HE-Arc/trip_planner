@@ -12,6 +12,7 @@ $dark-touch : #484848;
 $mainColor-darker : #008D9E;
 
 $mobile-size: 600px;
+$tablet-size: 800px;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -27,12 +28,9 @@ body{
   margin: 0;
   padding: 0;
 
-  font-family: "Century Gothic", Arial, sans-serif;
-
-  background-color: $mainColor-darker;
 
   //background-image: url("../img/arches.png");
-  background-image: url(http://www.transparenttextures.com/patterns/shattered-dark.png);
+
 }
 
 main {
@@ -90,8 +88,9 @@ a{
   -webkit-box-shadow: 0 1px 6px 0 rgba(0,0,0,0.3);
   box-shadow: 0 1px 6px 0 rgba(0,0,0,0.3);
 
-  background-image: url(http://www.transparenttextures.com/patterns/shattered-dark.png);
+  background-image: url("../img/shattered-dark.png");
 
+  z-index: 99;
 }
 
 #head-top-center{
@@ -297,11 +296,12 @@ footer{
 //
 #trip-insert-center{
   @include content-center();
-}
-#trip-insert-frm{
-  background-color: $lighter-zone;
+
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.trip-frm{
+  background-color: $lighter-zone;
 
 
   #info_address{
@@ -519,9 +519,172 @@ input[type="submit"]{
 }
 
 
+
+//
+// INDEX
+//
+
+#map-index-section{
+  position: relative;
+}
+
+#index-map{
+  height: 400px;
+  width: 100%;
+}
+
+#tripInfo{
+
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 400px;
+
+  z-index: 10;
+}
+
+#trip-center{
+  @include content-center();
+  height: 400px;
+
+}
+
+#trip-box{
+  width: 280px;
+  height: 380px;
+  background-color: rgba(255, 255, 255, .7);
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+  position: relative;
+
+
+  img{
+    text-align: center;
+
+    width: 150px;
+    height: 150px;
+    background-color: grey;
+
+    margin-top: 23px;
+    margin-left: 60px;
+
+    @include border-radius(75px);
+  }
+
+  #trip-info{
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: table-cell;
+    vertical-align: top;
+
+
+    p{
+      padding: 0;
+      margin: 0;
+      font-size: 15px;
+    }
+    h1{
+      font-size: 20px;
+      padding: 0;
+      padding-bottom: 5px;
+      margin: 0;
+    }
+  }
+
+  .btn-discover{
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+  }
+
+}
+
+.last-articles{
+  background-color: $mainColor;
+  z-index: 99;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.cards{
+  position: relative;
+  padding: 15px;
+
+  a{
+    width: 25%;
+    display: inline-block;
+    margin: 0px !important;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+.article-apercu-card{
+  display: inline-block;
+  width: 96%;
+
+  @include border-radius(5px);
+  background-color: white;
+  margin-bottom: 10px;
+
+
+
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
+
+  overflow: hidden;
+
+  img{
+    background-color: grey;
+    width: 100%;
+    height: 180px;
+
+    display: block;
+
+  }
+
+  h1, h2, p{
+    margin: 0;
+    padding: 0;
+    color: $dark-touch;
+  }
+
+  h1{
+    font-size: 20px;
+    padding-bottom: 2px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  .apercu-content{
+    padding: 20px;
+  }
+}
+
+.section-travels{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.center-title{
+  text-align: center;
+}
+
+
 //
 //  ARTICLE
 //
+#articles-zone{
+  background-image: url("../img/shattered-dark.png");
+  background-color: $mainColor-darker;
+}
 #articles{
   @include content-center();
 }
@@ -944,6 +1107,24 @@ input[type="submit"]{
   min-width: 140px;
 }
 
+
+
+@media all and (max-width: $tablet-size) {
+
+  //index
+  .cards {
+
+    a {
+      display: block;
+      width: 100%;
+    }
+    .article-apercu-card{
+      width: 100%;
+    }
+  }
+}
+
+
 @media all and (max-width: $mobile-size) {
 
   .display-box {
@@ -1008,4 +1189,15 @@ input[type="submit"]{
 
 .bold {
   font-weight: bold;
+
+  .colx2-container{
+    display: block;
+
+    padding: 10px;
+
+    .colx2{
+      display:block;
+      width: 100%;
+    }
+  }
 }

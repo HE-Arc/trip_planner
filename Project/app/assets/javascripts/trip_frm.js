@@ -8,7 +8,10 @@ $( document ).ready(function() {
     $(".article-gallery-thumbs").lightGallery();
 
 
-    $('#trip-insert-frm').css('height', 0);
+    if(!($( "#frm-errors" ).length)){
+        $('#trip-insert-frm').css('height', 0);
+    }
+
 
     $("#open-frm-insert").click(function(){
 
@@ -18,10 +21,9 @@ $( document ).ready(function() {
         pannel.css('height', 'auto');
 
         var autoHeight = pannel.height();
-        if(defaultHeight != 0){
+        if(defaultHeight != ''){
             autoHeight = 0;
         }
-
 
         pannel.css('height', defaultHeight);
 
@@ -29,23 +31,11 @@ $( document ).ready(function() {
     });
 
 
-
 });
 
 //
 // Frm find place (MAPS API)
 //
-
-function initGeo() {
-    var geocoder = new google.maps.Geocoder();
-
-    $('#find_addr').focusout(function() {
-        geocodeAddress(geocoder);
-    });
-
-    //initialize maps (trip_map.js)
-    initMap();
-}
 
 function initGeoEdit() {
     var geocoder = new google.maps.Geocoder();

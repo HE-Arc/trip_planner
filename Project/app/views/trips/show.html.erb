@@ -6,6 +6,10 @@
 
     <div id="head-travel-img"><%= image_tag @trip.image.url(:small) %></div>
     <div id="head-travel-descr">
+
+      <span class="hidden" id="trip_id"><%= @trip.id %></span>
+
+
       <p><%= @trip.title %></p>
       <p><i class="fa fa-calendar"></i>
         <%= if !@trip.date_start.nil?
@@ -51,7 +55,7 @@
 </section>
 
 <% if current_user == @trip.user && !current_user.nil? %>
-  <section id="trip-insert-frm">
+  <section id="trip-insert-frm" class="trip-frm">
     <div id="trip-insert-center">
       <h2><%= t('insertArticle') %></h2>
 
@@ -103,7 +107,7 @@
       <% end %>
 
       <% if flash[:alerts] %>
-          <ul>
+          <ul id="frm-errors">
             <% flash[:alerts].each do |alert| %>
                 <li><%= alert %></li>
             <% end %>
@@ -116,16 +120,22 @@
 <div id="map"></div>
 
 
-<%= render 'layouts/stages', collection: @my_stages  %>
+<section id="articles-zone">
+
+  <%= render 'layouts/stages', collection: @my_stages  %>
+
+
       
-<section id="trip-description">
-  <div class="trip-description-center">
-    <div class="trip-description-content">
+  <section id="trip-description">
+    <div class="trip-description-center">
+      <div class="trip-description-content">
 
-      <p><%= @trip.description %></p>
+        <p><%= @trip.description %></p>
+      </div>
+
     </div>
+  </section>
 
-  </div>
 </section>
 
 <%= javascript_include_tag 'trip_frm'%>
