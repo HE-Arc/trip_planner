@@ -20,11 +20,11 @@
           </div>
         </div>
 
-        <%= f.label :main_country %>
-        <%= f.text_field :main_country %><br />
+        <p><%= f.label :main_country %><br/>
+        <%= country_select("trip", "main_country") %><br /></p>
 
-        <%= f.label :image %><br />
-        <%= f.file_field :image %>
+        <p><%= f.label :image %><br />
+        <%= f.file_field :image %></p>
       </div>
     </div>
 

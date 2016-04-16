@@ -827,6 +827,13 @@ input[type="submit"]{
     display: table-cell;
     width: 200px;
   }
+
+  .article-bottom{
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+    right: 0;
+  }
 }
 
 .article-control-btn{

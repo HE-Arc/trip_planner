@@ -1,27 +1,27 @@
 Rails.application.routes.draw do
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
+  #devise_for :users, :controllers => { registrations: 'registrations' }
+
+  # # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'trips#index', as: 'index'
+  root 'application#index', as: 'index'
+
+  get 'maptrip(/:id)' => 'trips#maptrip', defaults: {format: :json}
+
+  get 'users/:id/trips' => 'trips#user_list', as: 'trip_from_user'
+
+  get 'trips/index' => 'trips#index', as: 'trip_index'
+  get 'trips/new' => 'trips#new', as: 'create_new_trip'
 
   resources :trips do
     resources :stages do
       resources :image_stage
     end
   end
-
-
-  get 'maptrip(/:id)' => 'trips#maptrip', defaults: {format: :json}
-
-  get 'users/:id/trips' => 'trips#user_list', as: 'trip_from_user'
-
-  get 'trips/new' => 'trips#new', as: 'create_new_trip'
-
-  #devise_for :users, :controllers => { registrations: 'registrations' }
 
   #get 'trips/:id_trip/edit_stage/:id_stage' => 'trips#edit_stage', :as => 'edit_stage'
 

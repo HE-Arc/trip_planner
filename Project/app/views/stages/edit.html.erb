@@ -56,7 +56,7 @@
             <%= f.datetime_select :date_time, :order => [:day, :month, :year, :hour, :minute] %><br /><br />
 
             <%= f.label :score %> (<%= t('stage_no_score')%>)<br />
-            <%= f.range_field :score, in: 0..5, step: 1, :oninput => "sliderShowValue(this.value)", :value => 0 %> <span id="score">0</span><br /><br />
+            <%= f.range_field :score, in: 0..5, step: 1, :oninput => "sliderShowValue(this.value)", :value => @stage.score %> <span id="score"><%= @stage.score %></span><br /><br />
 
             <label><%=t('add_images')%></label><br />
             <%= file_field_tag "images[]", type: :file, multiple: true %> <br />

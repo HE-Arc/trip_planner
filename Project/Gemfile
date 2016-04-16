@@ -29,6 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Adds attr_accessible and attr_protected to your models to be able to declare white or black lists of attributes.
 gem 'protected_attributes'
 
+# Country Selector
+gem 'country_select'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -12,7 +12,11 @@ class Trip < ActiveRecord::Base
 
   attr_accessible :title, :description, :date_start, :date_end, :main_country, :image
 
-  has_attached_file :image, styles: { big: "600x450#", medium: "150x150#", small: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :image, styles: { big: "600x450#", medium: "150x150#", small: "80x80#"}, default_url: "/images/:style/trip_missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  def country_name
+    ISO3166::Country[main_country]
+  end
 
 end

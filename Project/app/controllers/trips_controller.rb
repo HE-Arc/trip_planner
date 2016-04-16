@@ -40,7 +40,7 @@ class TripsController < ApplicationController
 
       if @trip.save
         flash.notice = t('trip_creation_success')
-        redirect_to action: :index
+        redirect_to action: :user_list, id: current_user.id
       else
         flash.alert = @trip.errors.full_messages
         redirect_to action: :new
@@ -61,16 +61,18 @@ class TripsController < ApplicationController
       if current_user.id == @trip.user_id
         if @trip.update(params[:trip])
           flash.notice = t('trip_edition_success')
+          redirect_to action: :user_list, id: current_user.id
           else
             render 'edit'
         end
       else
         flash.alert = t('trip_edition_not_owner')
+        redirect_to action: :user_list, id: current_user.id
       end
     else
       flash.alert = t('trip_edition_not_connected')
+      redirect_to action: :index
     end
-    redirect_to action: :index
   end
 
   def destroy
@@ -82,13 +84,15 @@ class TripsController < ApplicationController
         end
         Trip.find(params[:id]).delete
         flash.notice = t('trip_removal_success')
+        redirect_to action: :user_list, id: current_user.id
       else
         flash.alert = t('trip_removal_not_owner')
+        redirect_to action: :user_list, id: current_user.id
       end
     else
       flash.alert = t('trip_removal_not_connected')
+      redirect_to action: :index
     end
-    redirect_to action: :index
   end
 
   def trip_params
