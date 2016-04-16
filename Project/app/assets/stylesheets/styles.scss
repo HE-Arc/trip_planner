@@ -560,6 +560,8 @@ input[type="submit"]{
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
   position: relative;
 
+  display: none;
+
 
   img{
     text-align: center;
@@ -1207,4 +1209,9 @@ input[type="submit"]{
       width: 100%;
     }
   }
+}
+
+.link-map-stage{
+  color: black;
+
 }

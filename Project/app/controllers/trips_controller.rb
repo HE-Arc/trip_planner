@@ -25,7 +25,7 @@ class TripsController < ApplicationController
 
     response = { :trip => trip, :stages => trip.stages, :user => trip.user }
     respond_to do |format|
-      format.json  { render :json => response }
+      format.json  { render :json => response.to_json(:methods => [:image_url, :country_name]) }
     end
   end
 
