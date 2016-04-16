@@ -56,61 +56,33 @@
 
   <div class="center-content">
 
-    <h1 class="center-title">Derniers Articles</h1>
+    <h1 class="center-title"><%= t('last_articles' )%></h1>
 
-    <div class="cards"><!--
+    <div class="cards"><!--WHITESPACE
 
-      --><a href="#">
-        <div class="article-apercu-card">
+     <% @last_stages.each do |stage| %>
 
-          <img />
-          <div class="apercu-content">
-            <h1>Titre article</h1>
-            <h2>Travel name</h2>
-            <p>*****</p>
-          </div>
+      --><a href="<%= trip_url(stage.trip) %>#stage<%= stage.id %>">
+      <div class="article-apercu-card">
 
+        <% if !stage.image_stages.empty?  %>
+            <%= image_tag stage.image_stages[0].image.url(:big)%>
+        <%end%>
+
+        <i class="apercu-icon fa <%= stage.stagetype.icon %>"></i>
+
+        <div class="apercu-content">
+          <h1><%= stage.title %></h1>
+          <h2><%= stage.trip.title %></h2>
+          <p> <i class="fa fa-map-marker"></i> <%= stage.trip.country_name %></p>
+          <p>*****</p>
         </div>
-      </a><!--
 
-      --><a href="#">
-        <div class="article-apercu-card">
+      </div>
+    </a><!--WHITESPACE
 
-          <img />
-          <div class="apercu-content">
-            <h1>Titre article</h1>
-            <h2>Travel name</h2>
-            <p>*****</p>
-          </div>
+     <% end %>
 
-        </div>
-      </a><!--
-
-      --><a href="#">
-        <div class="article-apercu-card">
-
-          <img />
-          <div class="apercu-content">
-            <h1>Titre article</h1>
-            <h2>Travel name</h2>
-            <p>*****</p>
-          </div>
-
-        </div>
-      </a><!--
-
-      --><a href="#">
-        <div class="article-apercu-card">
-
-          <img />
-          <div class="apercu-content">
-            <h1>Titre article</h1>
-            <h2>Travel name</h2>
-            <p>*****</p>
-          </div>
-
-        </div>
-      </a><!--
 
      --></div>
 
@@ -123,71 +95,36 @@
 
 <section class="section-travels">
 
-
   <div class="center-content">
 
-    <h1 class="center-title">Voyages</h1>
+    <h1 class="center-title"><%=t('trips')%></h1>
 
-    <div class="cards"><!--
+    <div class="cards"><!--WHITESPACE
 
-      --><a href="#">
+     <% @rand_trips.each do |trip| %>
+
+      --><a href="<%= trip_url(trip) %>">
       <div class="article-apercu-card">
 
-        <img />
+        <%= image_tag trip.image.url(:big)%>
+
         <div class="apercu-content">
-          <h1>Titre article</h1>
-          <h2>Travel name</h2>
-          <p>*****</p>
+          <h1><%= trip.title %></h1>
+          <p> <i class="fa fa-map-marker"></i> <%= trip.country_name %></p>
         </div>
 
       </div>
-    </a><!--
+    </a><!--WHITESPACE
 
-      --><a href="#">
-      <div class="article-apercu-card">
+     <% end %>
 
-        <img />
-        <div class="apercu-content">
-          <h1>Titre article</h1>
-          <h2>Travel name</h2>
-          <p>*****</p>
-        </div>
-
-      </div>
-    </a><!--
-
-      --><a href="#">
-      <div class="article-apercu-card">
-
-        <img />
-        <div class="apercu-content">
-          <h1>Titre article</h1>
-          <h2>Travel name</h2>
-          <p>*****</p>
-        </div>
-
-      </div>
-    </a><!--
-
-      --><a href="#">
-      <div class="article-apercu-card">
-
-        <img />
-        <div class="apercu-content">
-          <h1>Titre article</h1>
-          <h2>Travel name</h2>
-          <p>*****</p>
-        </div>
-
-      </div>
-    </a><!--
 
      --></div>
 
-
   </div>
 
-  </div>
+
+
 
 
 </section>

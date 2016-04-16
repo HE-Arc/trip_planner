@@ -18,7 +18,7 @@ class TripsController < ApplicationController
   def maptrip
 
     if !params.has_key?(:id)
-      trip = Trip.first
+      trip = Trip.offset(rand(Trip.count)).first
     else
       trip = Trip.find(params[:id])
     end

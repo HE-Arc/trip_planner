@@ -32,7 +32,6 @@ class StagesController < ApplicationController
         }
       end
 
-
       redirect_to @trip
     else
       flash[:alerts] = @stage.errors.full_messages
