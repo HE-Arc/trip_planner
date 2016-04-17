@@ -58,6 +58,8 @@ en:
 
   last_articles: "Last articles"
 
+  all_travels: "See all travels"
+
   trip_creation_success : "The trip was perfectly created!"
   trip_creation_not_connected : "Please sign in to create a trip."
   trip_edition_success : "The trip was successfully updated."

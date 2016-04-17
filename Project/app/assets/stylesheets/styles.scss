@@ -1212,6 +1212,7 @@ input[type="submit"]{
       width: 100%;
     }
   }
+
 }
 
 
@@ -1295,4 +1296,15 @@ input[type="submit"]{
 .link-map-stage{
   color: black;
 
+}
+
+.button-large{
+  @include button();
+
+  display: block;
+  text-align: center;
+
+  font-weight: bold;
+
+  margin: 12px;
 }

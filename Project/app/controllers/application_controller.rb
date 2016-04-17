@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def index
 
     @last_stages = Stage.last(4).reverse
-    @rand_trips = Trip.offset(rand(Trip.count)).last(4)
+    @rand_trips = Trip.order('RAND()').limit(4)
 
   end
 
