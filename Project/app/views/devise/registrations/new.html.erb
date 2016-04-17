@@ -1,9 +1,11 @@
+<% content_for :title, t('sign_up_title') %>
+
 <% if resource.errors.full_messages.size != 0 %>
     <% flash[:alert] = flash[:alert].to_a.concat resource.errors.full_messages %>
 <% end %>
 
 <div class="center-content">
-  <h2>Sign up</h2>
+  <h2><%= t('sign_up_title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -24,7 +26,7 @@
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <em>(<%= @minimum_password_length %> <%= t('account_password_minimum') %>)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
@@ -37,14 +39,16 @@
   </div>
   <div class="display-box-buttons">
     <div class="display-box-buttons-left">
-      <%= link_to "Login", user_session_url %>
+      <%= link_to t('login_button'), user_session_url %>
     </div>
 
     <div class="display-box-buttons-right bold">
-      <%= f.submit "Sign up" %>
+      <%= f.submit t('sign_up_button') %>
     </div>
   </div>
 </div>
+
+<br />
 
 <% end %>
 

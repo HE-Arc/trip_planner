@@ -14,7 +14,11 @@
     <%= render 'stages/trip_stage', :stage => @stage %>
 
     <div class="article-comment-write">
-      <%= render 'form' %>
+      <% if !current_user.nil? %>
+        <%= render 'form' %>
+      <% else %>
+        <p>Please <%= link_to t('login_title'), user_session_url, :class => "dark_link" %> to comment !</p>
+      <% end %>
     </div>
 
   </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"	content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"/>
-  <title>Traveler - <%= yield(:title) %></title>
+  <title><%= t('website_title') %> - <%= yield(:title) %></title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -22,7 +22,7 @@
 
       <div id="head-top-logo"><i class="fa fa-globe"></i></div>
 
-      <p id="head-top-title"><a href="<%=index_path()%>">Neeeed Holiday !</a></p>
+      <p id="head-top-title"><a href="<%=index_path()%>"><%= t('website_title') %></a></p>
 
       <div class="head-top-nav">
 

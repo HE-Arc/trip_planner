@@ -1,86 +1,85 @@
+<section class="article-line" id="stage<%= stage.id %>">
+  <article class="article-all-content">
+    <div class="article-box">
 
-      <section class="article-line" id="stage<%= stage.id %>">
-        <article class="article-all-content">
-          <div class="article-box">
+      <% if !stage.image_stages.empty?  %>
+        <div class="article-gallery">
 
-            <% if !stage.image_stages.empty?  %>
-              <div class="article-gallery">
-
-                <a href="<%= stage.image_stages[0].image.url(:big) %>" class="imgLink">
-                  <%= image_tag stage.image_stages[0].image.url(:small), :class => "article-img" %>
-                </a>
-                <div class="article-gallery-thumbs">
-                  <% stage.image_stages.each do |photo| %>
-                    <a href="<%= photo.image.url(:big) %>" class="imgLink">
-                      <%= image_tag photo.image.url(:thumb), :class => "article-img-thumb" %>
-                    </a>
-                  <%end%>
-                </div>
-              </div>
+          <a href="<%= stage.image_stages[0].image.url(:big) %>" class="imgLink">
+            <%= image_tag stage.image_stages[0].image.url(:small), :class => "article-img" %>
+          </a>
+          <div class="article-gallery-thumbs">
+            <% stage.image_stages.each do |photo| %>
+              <a href="<%= photo.image.url(:big) %>" class="imgLink">
+                <%= image_tag photo.image.url(:thumb), :class => "article-img-thumb" %>
+              </a>
             <%end%>
-
-            <div class="article-content">
-
-              <h1><%= stage.title %></h1>
-              <p class="article-descr"><%= stage.description %>
-
-              <div class="article-bottom">
-                <div class="article-little-infos">
-                  <div class="article-little-logo"><i class="fa <%= stage.stagetype.icon %>"></i></div>
-                  <div class="article-little-date"><p><%=stage.date_time.strftime('%H:%M')%> <br/> <%= stage.date_time.strftime('%d.%m.%Y') %> </p></div>
-                </div>
-
-                <p class="article-score">
-                  <% if stage.score != 0 %>
-                      <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
-                  <% end %>
-                </p>
-              <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
-            </div>
-
           </div>
-
-          </div>
-          <% if current_user == @trip.user && !current_user.nil? %>
-            <div class="article-control">
-              <%= link_to t('edit'),
-                          edit_trip_stage_path(@trip, stage),
-                          :class=>"article-control-btn"%>
-              <%= link_to t('delete'),
-                          [@trip, stage],
-                          :confirm => t('confirm'),
-                          :method => :delete,
-                          :class=>"article-control-btn"%>
-            </div>
-          <% end %>
-
-          <div class="article-comments">
-            <% stage.stage_comments.each do |comment| %>
-              <div class="article-comment">
-                <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
-
-                <h2><i class="fa fa-user" aria-hidden="true"></i> <%= comment.user.username %></h2>
-
-                <p><%= comment.content %></p>
-                <p class="article-lieu">
-                  <%= comment.created_at.strftime("%d/%m/%y - %H:%M") %>
-                </p>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="article-comment-ctrl">
-            <p><i class="fa fa-comments" aria-hidden="true"></i>
-            <%= pluralize(stage.stage_comments.size, t('stage_comment_singular'), t('stage_comment_plural')) %><br/>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-            <%= link_to t('stage_comment_write_link'), new_trip_stage_stage_comment_path(@trip, stage) %></p>
-          </div>
-
-        </article>
-
-        <div class="article-chronology">
-          <div class="article-chronology-line">&nbsp;</div>
-          <div class="article-chronology-logo"><i class="fa <%= stage.stagetype.icon %>"></i></div>
-          <div class="article-chronology-date"><p><%= stage.date_time.strftime('%d.%m.%Y') %> <br/> <%=stage.date_time.strftime('%H:%M')%> </p></div>
         </div>
-      </section>
+      <%end%>
+
+      <div class="article-content">
+
+        <h1><%= stage.title %></h1>
+        <p class="article-descr"><%= stage.description %>
+
+        <div class="article-bottom">
+          <div class="article-little-infos">
+            <div class="article-little-logo"><i class="fa <%= stage.stagetype.icon %>"></i></div>
+            <div class="article-little-date"><p><%=stage.date_time.strftime('%H:%M')%> <br/> <%= stage.date_time.strftime('%d.%m.%Y') %> </p></div>
+          </div>
+
+          <p class="article-score">
+            <% if stage.score != 0 %>
+                <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
+            <% end %>
+          </p>
+        <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
+      </div>
+
+    </div>
+
+    </div>
+    <% if current_user == @trip.user && !current_user.nil? %>
+      <div class="article-control">
+        <%= link_to t('edit'),
+                    edit_trip_stage_path(@trip, stage),
+                    :class=>"article-control-btn"%>
+        <%= link_to t('delete'),
+                    [@trip, stage],
+                    data: {:confirm => t('stage_delete_confirm')},
+                    :method => :delete,
+                    :class=>"article-control-btn"%>
+      </div>
+    <% end %>
+
+    <div class="article-comments">
+      <% stage.stage_comments.each do |comment| %>
+        <div class="article-comment">
+          <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
+
+          <h2><i class="fa fa-user" aria-hidden="true"></i> <%= comment.user.username %></h2>
+
+          <p><%= comment.content %></p>
+          <p class="article-lieu">
+            <%= comment.created_at.strftime("%d/%m/%y - %H:%M") %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="article-comment-ctrl">
+      <p><i class="fa fa-comments" aria-hidden="true"></i>
+      <%= pluralize(stage.stage_comments.size, t('stage_comment_singular'), t('stage_comment_plural')) %><br/>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <%= link_to t('stage_comment_write_link'), new_trip_stage_stage_comment_path(@trip, stage) %></p>
+    </div>
+
+  </article>
+
+  <div class="article-chronology">
+    <div class="article-chronology-line">&nbsp;</div>
+    <div class="article-chronology-logo"><i class="fa <%= stage.stagetype.icon %>"></i></div>
+    <div class="article-chronology-date"><p><%= stage.date_time.strftime('%d.%m.%Y') %> <br/> <%=stage.date_time.strftime('%H:%M')%> </p></div>
+  </div>
+</section>

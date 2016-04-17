@@ -1,5 +1,7 @@
+<% content_for :title, t('login_title') %>
+
 <div class="center-content">
-  <h2>Sign up</h2>
+  <h2><%= t('login_title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -12,7 +14,7 @@
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <em>(<%= @minimum_password_length %> <%= t('account_password_minimum') %>)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
@@ -27,15 +29,17 @@
     </div>
     <div class="display-box-buttons">
       <div class="display-box-buttons-left">
-        <%= link_to "Sign Up", user_session_url %>
+        <%= link_to t('sign_up_button'), new_user_registration_path %>
       </div>
 
       <div class="display-box-buttons-right bold">
-        <%= f.submit "Login" %>
+        <%= f.submit t('login_button') %>
       </div>
     </div>
   </div>
 
   <% end %>
+
+  <br/>
 
 </div>

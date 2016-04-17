@@ -1,19 +1,6 @@
 <% content_for :title, t('editArticle') %>
 
-<section id="head-travel">
-
-  <div id="head-travel-center">
-
-    <div id="head-travel-img">&nbsp;</div>
-    <div id="head-travel-descr">
-      <p><%= @trip.title %></p>
-      <p>Date start - end</p>
-      <p>Author</p>
-    </div>
-
-  </div>
-
-</section>
+<%= render 'trips/header', :trip => @trip %>
 
 <section class="trip-frm">
   <div id="trip-insert-center">

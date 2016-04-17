@@ -61,7 +61,7 @@ class TripsController < ApplicationController
       if current_user.id == @trip.user_id
         if @trip.update(params[:trip])
           flash.notice = t('trip_edition_success')
-          redirect_to action: :user_list, id: current_user.id
+          redirect_to action: :show, id: @trip.id
           else
             render 'edit'
         end
