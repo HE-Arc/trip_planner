@@ -45,21 +45,17 @@
 
 <% flash.each do |name, msg| %>
       <% if msg.class == Array %>
-          <div class="alert"><div class="center-content"><p>
+          <div class="<%= name %>"><div class="center-content"><p>
           <% msg.each do |message| %>
                 <i class="fa fa-exclamation-triangle"></i> <%= message %><br/>
           <% end %>
           </p></div></div>
-          <% flash[:alert] = nil %>
       <% else %>
-        <% if !flash["notice"].nil? %>
-              <div class="notice"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= notice %></p></div></div>
-          <% end %>
-          <% if !flash["alert"].nil? %>
-              <div class="alert"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= alert %></p></div></div>
-          <% end %>
+        <div class="<%= name %>"><div class="center-content"><p><i class="fa fa-exclamation-triangle"></i> <%= msg %></p></div></div>
       <% end %>
 <% end %>
+<% flash = nil %>
+
 
 <section id="user-pannel">
   <div class="center-content">

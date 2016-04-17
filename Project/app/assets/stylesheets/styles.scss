@@ -1085,7 +1085,7 @@ input[type="submit"]{
 
   }
 }
-.notice{
+.notice, .notices{
   @include alert-message-top();
   background-color: yellow;
   p{
@@ -1094,7 +1094,7 @@ input[type="submit"]{
 
 }
 
-.alert{
+.alert, .alerts{
   @include alert-message-top();
   background-color: red;
 }

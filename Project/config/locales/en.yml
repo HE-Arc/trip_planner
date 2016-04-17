@@ -69,6 +69,8 @@ en:
   trip_removal_not_owner : "You can not delete someone else's trip"
   trip_removal_not_connected : "Please sign in to remove a trip."
 
+  home_trip_discover : "Discover"
+
   stage_no_score : "0 = No Score"
 
   stage_comment_page_title : "Comments"

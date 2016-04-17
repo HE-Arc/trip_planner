@@ -72,7 +72,11 @@
 
               <% Stagetype.all.each do |type| %>
                   <div class="trip-insert-radio">
-                    <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>" />
+                    <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>"
+                           <% if type==@stage.stagetype %>
+                           checked="checked"
+                           <%end%>
+                    />
                     <span><i class="fa <%=type.icon%>"></i> <%= type.title %></span>
                   </div>
               <% end %>
@@ -105,13 +109,6 @@
           </div>
       <% end %>
 
-      <% if flash[:alerts] %>
-          <ul id="frm-errors">
-            <% flash[:alerts].each do |alert| %>
-                <li><%= alert %></li>
-            <% end %>
-          </ul>
-      <% end %>
     </div>
   </section>
 <% end %>
