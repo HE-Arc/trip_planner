@@ -301,7 +301,7 @@ footer{
   @include content-center();
 
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 .trip-frm{
   background-color: $lighter-zone;
@@ -316,7 +316,7 @@ footer{
   }
 
   #finded_adresses{
-    max-height: 120px;
+    max-height: 100px;
     overflow-y: scroll;
     background-color: white;
     -webkit-box-shadow:inset 0 0 2px 0 rgba(0,0,0,0.4);
@@ -709,11 +709,15 @@ input[type="submit"]{
 
 }
 
+.article-comment-show{
+
+}
+
 .article-comment-ctrl{
 
   color: white;
 
-  padding: 10px;
+  padding: 0px 10px 0 10px;
   margin-top: 10px;
   cursor: pointer;
 

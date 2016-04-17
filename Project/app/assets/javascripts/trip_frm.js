@@ -8,7 +8,7 @@ $( document ).ready(function() {
     $(".article-gallery-thumbs").lightGallery();
 
 
-    if(!($( "#frm-errors" ).length)){
+    if(!($( ".alerts" ).length)){
         $('#trip-insert-frm').css('height', 0);
     }
 
