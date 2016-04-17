@@ -70,11 +70,14 @@
           </div>
 
           <div class="article-comment-ctrl">
-            <p><i class="fa fa-comments" aria-hidden="true"></i>
-            <%= pluralize(stage.stage_comments.size, t('stage_comment_singular'), t('stage_comment_plural')) %><br/>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-            <%= link_to t('stage_comment_write_link'), new_trip_stage_stage_comment_path(@trip, stage) %></p>
+            <p><i class="fa fa-pencil" aria-hidden="true"></i> <%= link_to t('stage_comment_write_link'), new_trip_stage_stage_comment_path(@trip, stage) %></p>
           </div>
+
+          <div class="article-comment-ctrl article-comment-show">
+            <p><i class="fa fa-comments" aria-hidden="true"></i>
+            <%= pluralize(stage.stage_comments.size, t('stage_comment_singular'), t('stage_comment_plural')) %></p>
+          </div>
+
 
         </article>
 

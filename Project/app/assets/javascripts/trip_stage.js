@@ -1,6 +1,6 @@
 $(document).on('ready page:load', function () {
 
-    $('.article-comment-ctrl').click(function(){
+    $('.article-comment-show').click(function(){
         var article_comments = $(this).parent().find('.article-comments');
 
         var defaultHeight = article_comments.height();
