@@ -6,7 +6,7 @@
   <% else %>
     <% @my_stages.each do |stage| %>
 
-      <section class="article-line">
+      <section class="article-line" id="stage<%= stage.id %>">
         <article class="article-all-content">
           <div class="article-box">
 
@@ -60,6 +60,33 @@
                           :class=>"article-control-btn"%>
             </div>
           <% end %>
+
+
+          <!--<h2 class="header-comments">Commentaires</h2>-->
+
+
+          <!-- template commentaires
+
+          <div class="article-comment">
+            <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
+
+            <h2><i class="fa fa-user" aria-hidden="true"></i> Username</h2>
+            <p>Content</p>
+            <p class="article-lieu">Date</p>
+          </div>
+
+          <div class="article-comment">
+            <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
+
+            <h2><i class="fa fa-user" aria-hidden="true"></i> Username</h2>
+            <p>Content</p>
+            <p class="article-lieu">Date</p>
+          </div>
+
+          <div class="article-comment-ctrl"><p><i class="fa fa-comments" aria-hidden="true"></i> Cacher les commentaires</p></div>
+
+          -->
+
         </article>
 
         <div class="article-chronology">

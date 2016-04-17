@@ -18,14 +18,14 @@ class TripsController < ApplicationController
   def maptrip
 
     if !params.has_key?(:id)
-      trip = Trip.first
+      trip = Trip.offset(rand(Trip.count)).first
     else
       trip = Trip.find(params[:id])
     end
 
     response = { :trip => trip, :stages => trip.stages, :user => trip.user }
     respond_to do |format|
-      format.json  { render :json => response }
+      format.json  { render :json => response.to_json(:methods => [:image_url, :country_name]) }
     end
   end
 

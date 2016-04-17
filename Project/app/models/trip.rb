@@ -19,4 +19,8 @@ class Trip < ActiveRecord::Base
     ISO3166::Country[main_country]
   end
 
+  def image_url
+    return image.url(:medium)
+  end
+
 end

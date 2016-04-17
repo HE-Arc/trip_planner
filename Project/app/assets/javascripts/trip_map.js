@@ -31,23 +31,33 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
         url: '/maptrip/'+$('#trip_id').text(),
         success: function (data, textStatus, jqXHR) {
 
-            $('#tripName').text(data.trip.title);
-            $('#tripUserName').text(data.user.email);
-            $('#tripLocation').text(data.trip.main_country);
+            var disableUI = false;
+            var tripbox = $('#trip-box');
+            if(tripbox.length)
+            {
+                $('#tripName').text(data.trip.title);
+                $('#tripUserName').text(data.user.email);
+                $('#tripLocation').text(data.trip.country_name.data.name);
+                $('#trip-img').attr("src", data.trip.image_url);
 
-            var dateStart = new Date(data.trip.date_start);
-            var dateEnd = new Date(data.trip.date_end);
+                var dateStart = new Date(data.trip.date_start);
+                var dateEnd = new Date(data.trip.date_end);
 
-            $('#tripDate').text(dateStart.toLocaleDateString() + " - " + dateEnd.toLocaleDateString());
+                $('#tripDate').text(dateStart.toLocaleDateString() + " - " + dateEnd.toLocaleDateString());
 
-            $('#tripDiscoverButton').attr("href", "/trips/"+data.trip.id);
+                $('#tripDiscoverButton').attr("href", "/trips/"+data.trip.id);
 
+                tripbox.css('display', 'block');
+                disableUI = true;
+            }
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 6,
                 scrollwheel: false,
-                center: {lat: 41.85, lng: -87.65} //todo center
+                center: {lat: parseFloat(data.trip.country_name.data.latitude_dec), lng: parseFloat(data.trip.country_name.data.longitude_dec)},
+                disableDefaultUI: disableUI
             });
+
 
             directionsDisplay.setMap(map);
 
@@ -65,6 +75,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
                 wayptscpy.push({
                     location: data.stages[i].adress,
                     stopover: true,
+                    id: data.stages[i].id,
                     title: data.stages[i].title,
                     date_time: data.stages[i].date_time
                 });
@@ -103,11 +114,12 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
 
             for (var i=0; i<wayptscpy.length; i++)
             {
+                var id = wayptscpy[i].id;
                 var title = wayptscpy[i].title;
                 var dateObj = new Date(wayptscpy[i].date_time);
                 var date = dateObj.toLocaleDateString();
 
-                FindLatLong(wayptscpy[i].location, displayPts, title, date, map);
+                FindLatLong(wayptscpy[i].location, displayPts, title, date, id, map);
             }
 
 
@@ -119,19 +131,19 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
 
 }
 
-function FindLatLong(address, callback, title, date, map)
+function FindLatLong(address, callback, title, date, id, map)
 {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-            callback(results[0].geometry.location.lat(), results[0].geometry.location.lng(), map, title, date);
+            callback(results[0].geometry.location.lat(), results[0].geometry.location.lng(), map, title, date, id);
         }
     });
 }
 
-function displayPts(lat, long, map, title, date){
+function displayPts(lat, long, map, title, date, id){
 
-    var contentString = '<h4>'+title+'</h4><p>'+date+'</p>';
+    var contentString = '<a class="link-map-stage" href="#stage'+id+'"><h4>'+title+'</h4><p>'+date+'</p></a>';
 
     var infowindow = new google.maps.InfoWindow({
         content: contentString
