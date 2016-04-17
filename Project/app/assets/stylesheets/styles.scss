@@ -695,6 +695,75 @@ input[type="submit"]{
 //
 //  ARTICLE
 //
+
+.header-comments{
+  color: white;
+
+  padding: 10px 0 0 0;
+  line-height: 10px;
+
+  font-size: 20px;
+
+}
+
+.article-comment-ctrl{
+  background-color: white;
+  @include border-radius(10px);
+  padding: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+
+  cursor: pointer;
+
+  -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+
+  &:hover{
+    opacity: 0.8;
+  }
+
+  p{
+    margin: 0;
+    padding: 0;
+    line-height: 10px;
+    text-align: center;
+
+    font-weight: bold;
+  }
+}
+
+.article-comment{
+  background-color: white;
+  margin-right: 20px;
+  margin-top: 10px;
+
+  padding: 5px 15px 5px 15px;
+
+  position: relative;
+
+  @include border-radius(10px);
+
+  -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+
+  h2, p{
+    padding: 0;
+    line-height: 10px;
+  }
+
+  h2{
+    font-size: 18px;
+  }
+
+  .comment-logo{
+    position: absolute;
+    padding: 15px;
+    right: 0;
+    top: 0;
+  }
+}
+
+
 #articles-zone{
   background-image: url("../img/shattered-dark.png");
   background-color: $mainColor-darker;
