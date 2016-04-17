@@ -9,7 +9,6 @@
 
       <span class="hidden" id="trip_id"><%= @trip.id %></span>
 
-
       <p><%= @trip.title %></p>
       <p><i class="fa fa-calendar"></i>
         <%= if !@trip.date_start.nil?
@@ -73,7 +72,11 @@
 
               <% Stagetype.all.each do |type| %>
                   <div class="trip-insert-radio">
-                    <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>" />
+                    <input class="rbtn" type="radio" name="stage[stagetype_id]" value="<%=type.id%>"
+                           <% if type==@stage.stagetype %>
+                           checked="checked"
+                           <%end%>
+                    />
                     <span><i class="fa <%=type.icon%>"></i> <%= type.title %></span>
                   </div>
               <% end %>
@@ -106,24 +109,29 @@
           </div>
       <% end %>
 
-      <% if flash[:alerts] %>
-          <ul id="frm-errors">
-            <% flash[:alerts].each do |alert| %>
-                <li><%= alert %></li>
-            <% end %>
-          </ul>
-      <% end %>
     </div>
   </section>
 <% end %>
 
 <div id="map"></div>
 
-
 <section id="articles-zone">
 
-  <%= render 'stages/trip_stage', collection: @my_stages  %>
-      
+  <section id="articles">
+
+    <% if @my_stages.empty? %>
+        <p><%= t('nostage') %></p>
+
+    <% else %>
+        <% @my_stages.each do |stage| %>
+
+            <%= render 'stages/trip_stage', :stage => stage %>
+
+        <% end %>
+    <% end %>
+
+  </section>
+
   <section id="trip-description">
     <div class="trip-description-center">
       <div class="trip-description-content">

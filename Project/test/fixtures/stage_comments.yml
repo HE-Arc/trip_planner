@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  nb_update: 1
+  user_id: 
+  stage_id: 
+
+two:
+  content: MyText
+  nb_update: 1
+  user_id: 
+  stage_id: 

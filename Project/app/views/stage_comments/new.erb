@@ -1,0 +1,21 @@
+<% content_for :title, t('stage_comment_page_return') %>
+
+<section id="articles-zone">
+  <div class="center-content" >
+
+    <%= link_to(@trip) do %>
+    <p>
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+      <%= t('stage_comment_page_return') %>
+    </p>
+    <% end %>
+    <h1><%= t('stage_comment_page_title') %></h1>
+
+    <%= render 'stages/trip_stage', :stage => @stage %>
+
+    <div class="article-comment-write">
+      <%= render 'form' %>
+    </div>
+
+  </div>
+</section>

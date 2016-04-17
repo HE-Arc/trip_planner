@@ -4,6 +4,7 @@ class Stage < ActiveRecord::Base
   belongs_to :stagetype
 
   has_many :image_stages, :dependent => :delete_all
+  has_many :stage_comments, :dependent => :delete_all
 
   validates :title,
             presence: true,

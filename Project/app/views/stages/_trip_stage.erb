@@ -1,10 +1,3 @@
-<section id="articles">
-
-  <% if @my_stages.empty? %>
-      <p><%= t('nostage') %></p>
-
-  <% else %>
-    <% @my_stages.each do |stage| %>
 
       <section class="article-line" id="stage<%= stage.id %>">
         <article class="article-all-content">
@@ -42,15 +35,11 @@
                       <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
                   <% end %>
                 </p>
-                </p>
-                <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
+              <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
             </div>
 
+          </div>
 
-
-
-
-            </div>
           </div>
           <% if current_user == @trip.user && !current_user.nil? %>
             <div class="article-control">
@@ -65,30 +54,27 @@
             </div>
           <% end %>
 
-
-          <!--<h2 class="header-comments">Commentaires</h2>-->
-
           <div class="article-comments">
+            <% stage.stage_comments.each do |comment| %>
+              <div class="article-comment">
+                <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
 
-            <div class="article-comment">
-              <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
+                <h2><i class="fa fa-user" aria-hidden="true"></i> <%= comment.user.username %></h2>
 
-              <h2><i class="fa fa-user" aria-hidden="true"></i> Username</h2>
-              <p>Content</p>
-              <p class="article-lieu">Date</p>
-            </div>
-
-            <div class="article-comment">
-              <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
-
-              <h2><i class="fa fa-user" aria-hidden="true"></i> Username</h2>
-              <p>Content</p>
-              <p class="article-lieu">Date</p>
-            </div>
-
+                <p><%= comment.content %></p>
+                <p class="article-lieu">
+                  <%= comment.created_at.strftime("%d/%m/%y - %H:%M") %>
+                </p>
+              </div>
+            <% end %>
           </div>
 
-          <div class="article-comment-ctrl"><p><i class="fa fa-comments" aria-hidden="true"></i> 20 commentaires</p></div>
+          <div class="article-comment-ctrl">
+            <p><i class="fa fa-comments" aria-hidden="true"></i>
+            <%= pluralize(stage.stage_comments.size, t('stage_comment_singular'), t('stage_comment_plural')) %><br/>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <%= link_to t('stage_comment_write_link'), new_trip_stage_stage_comment_path(@trip, stage) %></p>
+          </div>
 
         </article>
 
@@ -98,10 +84,3 @@
           <div class="article-chronology-date"><p><%= stage.date_time.strftime('%d.%m.%Y') %> <br/> <%=stage.date_time.strftime('%H:%M')%> </p></div>
         </div>
       </section>
-
-    <% end %>
-  <% end %>
-
-
-
-</section>

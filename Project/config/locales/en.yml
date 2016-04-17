@@ -69,7 +69,16 @@ en:
   trip_removal_not_owner : "You can not delete someone else's trip"
   trip_removal_not_connected : "Please sign in to remove a trip."
 
+  home_trip_discover : "Discover"
+
   stage_no_score : "0 = No Score"
+
+  stage_comment_page_title : "Comments"
+  stage_comment_page_return : "Back to the trip"
+  stage_comment_page_write_submit : "Send the comment"
+  stage_comment_write_link : "Write a comment"
+  stage_comment_singular : "comment"
+  stage_comment_plural : "comments"
 
   activerecord:
       models:

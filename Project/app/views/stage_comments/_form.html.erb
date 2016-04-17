@@ -1,0 +1,6 @@
+<%= form_for [@trip, @stage, @stage_comment], :html => { multipart: true } do |f| %>
+
+    <%= f.text_area :content %><br />
+    <%= f.submit t('stage_comment_page_write_submit') %>
+
+<% end %>

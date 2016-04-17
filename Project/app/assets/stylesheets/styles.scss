@@ -765,19 +765,29 @@ input[type="submit"]{
   }
 }
 
+.article-comment-write {
+  background-color: white;
+  padding: 15px;
+  position: relative;
+  margin-bottom: 10px;
+
+  @include border-radius(10px);
+
+  -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+}
 
 #articles-zone{
   background-image: url("../img/shattered-dark.png");
   background-color: $mainColor-darker;
+
+  a:link, a:visited {
+    color: white;
+  }
 }
 #articles{
   @include content-center();
 }
-
-
-
-
-
 
 .article-line{
   position: relative;
@@ -796,7 +806,6 @@ input[type="submit"]{
   .article-little-date{
     font-size: 12px;
   }
-
 
   .article-all-content{
     display: table-cell;
@@ -1076,7 +1085,7 @@ input[type="submit"]{
 
   }
 }
-.notice{
+.notice, .notices{
   @include alert-message-top();
   background-color: yellow;
   p{
@@ -1085,7 +1094,7 @@ input[type="submit"]{
 
 }
 
-.alert{
+.alert, .alerts{
   @include alert-message-top();
   background-color: red;
 }

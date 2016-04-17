@@ -35,7 +35,7 @@
 
         </div>
 
-        <a href="#" id="tripDiscoverButton" class="button btn-discover">Découvir</a>
+        <a href="#" id="tripDiscoverButton" class="button btn-discover"><%= t('home_trip_discover') %></a>
 
       </div>
 
@@ -75,7 +75,11 @@
           <h1><%= stage.title %></h1>
           <h2><%= stage.trip.title %></h2>
           <p> <i class="fa fa-map-marker"></i> <%= stage.trip.country_name %></p>
-          <p>*****</p>
+          <p class="article-score">
+          <% if stage.score != 0 %>
+              <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
+          <% end %>
+          </p>
         </div>
 
       </div>
