@@ -20,7 +20,6 @@ class StagesController < ApplicationController
     end
   end
 
-
   def create
     @stage = Stage.new(stage_params)
     @stage.trip = @trip
@@ -31,7 +30,6 @@ class StagesController < ApplicationController
           @stage.image_stages.create(image: image)
         }
       end
-
 
       redirect_to @trip
     else
@@ -60,7 +58,6 @@ class StagesController < ApplicationController
         stage.image_stages.create(image: image)
       }
     end
-
 
     if stage.update_attributes(stage_params)
       # Handle a successful update.

@@ -17,9 +17,12 @@ Rails.application.routes.draw do
   get 'trips/index' => 'trips#index', as: 'trip_index'
   get 'trips/new' => 'trips#new', as: 'create_new_trip'
 
+  get 'trips/:trip_id/stages/:stage_id/comments' => 'stage_comments#stage_list', as: 'comments_for_stage'
+
   resources :trips do
     resources :stages do
       resources :image_stage
+      resources :stage_comments
     end
   end
 

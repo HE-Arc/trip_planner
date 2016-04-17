@@ -37,8 +37,13 @@
                       <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
                   <% end %>
                 </p>
-                </p>
-                <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
+              <p class="article-lieu"><i class="fa fa-comment" aria-hidden="true"></i>
+
+                <%= link_to pluralize(stage.stage_comments.size, 'comment', 'comments'),
+                            comments_for_stage_path(@trip, stage) %>
+                <%= link_to t('Write a comment'), new_trip_stage_stage_comment_path(@trip, stage) %>
+              </p>
+              <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
             </div>
 
             </div>

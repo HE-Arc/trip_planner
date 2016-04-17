@@ -1,0 +1,11 @@
+<%= form_for [@trip, @stage, @stage_comment], :html => { multipart: true } do |f| %>
+
+    <div class="colx2-container">
+      <div class="colx2">
+        <%= f.label :content %>
+        <%= f.text_area :content %><br />
+      </div>
+    </div>
+
+    <%= f.submit %>
+<% end %>

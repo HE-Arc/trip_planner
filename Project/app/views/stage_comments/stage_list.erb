@@ -1,0 +1,19 @@
+<div class="center-content">
+    <% @stage_comment.each do |comment| %>
+
+      <p><%= comment.content %>
+      <%= comment.user.username %>
+        <%= comment.created_at.strftime("%d/%m/%y - %H:%M") %>
+
+      <% if comment.nb_update!=nil && comment.nb_update > 0 %>
+            Edité <%= comment.nb_update %> fois - Dernière édition : <%= comment.updated_at %>
+            <% end %>
+
+      </p>
+
+
+
+    <% end %>
+
+</div>
+
