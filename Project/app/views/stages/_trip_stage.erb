@@ -32,6 +32,11 @@
               <p class="article-descr"><%= stage.description %>
 
               <div class="article-bottom">
+                <div class="article-little-infos">
+                  <div class="article-little-logo"><i class="fa <%= stage.stagetype.icon %>"></i></div>
+                  <div class="article-little-date"><p><%=stage.date_time.strftime('%H:%M')%> <br/> <%= stage.date_time.strftime('%d.%m.%Y') %> </p></div>
+                </div>
+
                 <p class="article-score">
                   <% if stage.score != 0 %>
                       <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
@@ -40,6 +45,10 @@
                 </p>
                 <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
             </div>
+
+
+
+
 
             </div>
           </div>

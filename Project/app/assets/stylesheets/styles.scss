@@ -771,9 +771,29 @@ input[type="submit"]{
 #articles{
   @include content-center();
 }
+
+
+
+
+
+
 .article-line{
   position: relative;
   display: table;
+
+  .article-little-infos{
+    display: none;
+    vertical-align: bottom;
+    text-align: right;
+
+    color: $dark-touch;
+  }
+  .article-little-logo{
+    font-size: 18px;
+  }
+  .article-little-date{
+    font-size: 12px;
+  }
 
 
   .article-all-content{
@@ -783,6 +803,7 @@ input[type="submit"]{
 
     padding-top: 10px;
     padding-bottom: 10px;
+
   }
   .article-box{
     background-color: white;
@@ -1213,10 +1234,41 @@ input[type="submit"]{
     }
   }
 
+
+
+
 }
 
 
 @media all and (max-width: $mobile-size) {
+
+
+  //articles
+
+  .article-little-infos {
+    display: block !important;
+  }
+
+  .article-line{
+    padding: 10px;
+  }
+
+  .article-box{
+    padding-bottom: 50px;
+  }
+
+  .article-chronology{
+    display: none;
+  }
+  .article-chronology-logo{
+    display: none;
+  }
+  .article-chronology-line{
+    display: none;
+  }
+  .article-chronology-date{
+    display: none;
+  }
 
   .display-box {
 
