@@ -75,14 +75,17 @@
           <h1><%= stage.title %></h1>
           <h2><%= stage.trip.title %></h2>
           <p> <i class="fa fa-map-marker"></i> <%= stage.trip.country_name %></p>
-          <p>*****</p>
+          <p class="article-score">
+          <% if stage.score != 0 %>
+              <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
+          <% end %>
+          </p>
         </div>
 
       </div>
     </a><!--WHITESPACE
 
      <% end %>
-
 
      --></div>
 
@@ -98,6 +101,9 @@
   <div class="center-content">
 
     <h1 class="center-title"><%=t('trips')%></h1>
+
+
+
 
     <div class="cards"><!--WHITESPACE
 
@@ -121,8 +127,18 @@
 
      --></div>
 
-  </div>
+    <div>
 
+
+    </div>
+
+
+
+    <div class="center-text-content">
+      <%= link_to t('all_travels'), trip_index_path, :class => "button-large" %>
+    </div>
+
+  </div>
 
 
 

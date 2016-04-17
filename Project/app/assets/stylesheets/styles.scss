@@ -707,16 +707,13 @@ input[type="submit"]{
 }
 
 .article-comment-ctrl{
-  background-color: white;
-  @include border-radius(10px);
-  padding: 10px;
-  margin-right: 20px;
-  margin-top: 10px;
 
+  color: white;
+
+  padding: 10px;
+  margin-top: 10px;
   cursor: pointer;
 
-  -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
 
   &:hover{
     opacity: 0.8;
@@ -726,15 +723,20 @@ input[type="submit"]{
     margin: 0;
     padding: 0;
     line-height: 10px;
-    text-align: center;
+    text-align: right;
 
     font-weight: bold;
   }
 }
 
+.article-comments{
+  overflow: hidden;
+  height: 0;
+}
+
 .article-comment{
   background-color: white;
-  margin-right: 20px;
+
   margin-top: 10px;
 
   padding: 5px 15px 5px 15px;
@@ -778,14 +780,32 @@ input[type="submit"]{
 #articles-zone{
   background-image: url("../img/shattered-dark.png");
   background-color: $mainColor-darker;
+
+  a:link, a:visited {
+    color: white;
+  }
 }
 #articles{
   @include content-center();
 }
+
 .article-line{
   position: relative;
   display: table;
 
+  .article-little-infos{
+    display: none;
+    vertical-align: bottom;
+    text-align: right;
+
+    color: $dark-touch;
+  }
+  .article-little-logo{
+    font-size: 18px;
+  }
+  .article-little-date{
+    font-size: 12px;
+  }
 
   .article-all-content{
     display: table-cell;
@@ -794,6 +814,7 @@ input[type="submit"]{
 
     padding-top: 10px;
     padding-bottom: 10px;
+
   }
   .article-box{
     background-color: white;
@@ -1223,10 +1244,41 @@ input[type="submit"]{
       width: 100%;
     }
   }
+
+
+  //articles
+
+  .article-little-infos {
+    display: block !important;
+  }
+
+  .article-line{
+    padding: 10px;
+  }
+
+  .article-box{
+    padding-bottom: 50px;
+  }
+
+  .article-chronology{
+    display: none;
+  }
+  .article-chronology-logo{
+    display: none;
+  }
+  .article-chronology-line{
+    display: none;
+  }
+  .article-chronology-date{
+    display: none;
+  }
+
+
 }
 
 
 @media all and (max-width: $mobile-size) {
+
 
   .display-box {
 
@@ -1306,4 +1358,15 @@ input[type="submit"]{
 .link-map-stage{
   color: black;
 
+}
+
+.button-large{
+  @include button();
+
+  display: block;
+  text-align: center;
+
+  font-weight: bold;
+
+  margin: 12px;
 }
