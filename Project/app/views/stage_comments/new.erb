@@ -1,8 +1,14 @@
-<% content_for :title, t('travel_create_title') %>
+<% content_for :title, t('stage_comment_page_return') %>
 
 <div class="center-content">
-  <h1><%= t('comment_create_title') %></h1>
+  <p><%= link_to(@trip) do %><i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        <%= t('stage_comment_page_return') %></p><% end %>
+  <h1><%= t('stage_comment_page_title') %> </h1>
 
-  <%= render 'form' %>
+  <%= render 'stages/trip_stage', :stage => @stage %>
+
+  <div class="article-comment-write">
+    <%= render 'form' %>
+  </div>
 
 </div>

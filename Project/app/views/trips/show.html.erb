@@ -118,11 +118,23 @@
 
 <div id="map"></div>
 
-
 <section id="articles-zone">
 
-  <%= render 'stages/trip_stage', collection: @my_stages  %>
-      
+  <section id="articles">
+
+    <% if @my_stages.empty? %>
+        <p><%= t('nostage') %></p>
+
+    <% else %>
+        <% @my_stages.each do |stage| %>
+
+            <%= render 'stages/trip_stage', :stage => stage %>
+
+        <% end %>
+    <% end %>
+
+  </section>
+
   <section id="trip-description">
     <div class="trip-description-center">
       <div class="trip-description-content">

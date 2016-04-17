@@ -1,10 +1,4 @@
-<section id="articles">
 
-  <% if @my_stages.empty? %>
-      <p><%= t('nostage') %></p>
-
-  <% else %>
-    <% @my_stages.each do |stage| %>
 
       <section class="article-line" id="stage<%= stage.id %>">
         <article class="article-all-content">
@@ -37,11 +31,13 @@
                       <span class="stars-container stars-<%= stage.score %>">★★★★★</span>
                   <% end %>
                 </p>
-              <p class="article-lieu"><i class="fa fa-comment" aria-hidden="true"></i>
-
+              <p class="article-lieu">
+                <i class="fa fa-comment" aria-hidden="true"></i>
                 <%= link_to pluralize(stage.stage_comments.size, 'comment', 'comments'),
                             comments_for_stage_path(@trip, stage) %>
-                <%= link_to t('Write a comment'), new_trip_stage_stage_comment_path(@trip, stage) %>
+
+                 <i class="fa fa-pencil" aria-hidden="true"></i>
+                <%= link_to t('comments_write'), new_trip_stage_stage_comment_path(@trip, stage) %>
               </p>
               <p class="article-lieu"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= stage.adress %></p>
             </div>
@@ -61,31 +57,27 @@
             </div>
           <% end %>
 
+          <% if stage.stage_comments.size > 0 %>
 
-          <!--<h2 class="header-comments">Commentaires</h2>-->
+            <% stage.stage_comments.each do |comment| %>
+              <div class="article-comment">
+                <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
 
+                <h2><i class="fa fa-user" aria-hidden="true"></i> <%= comment.user.username %></h2>
+                <p><%= comment.content %></p>
+                <p class="article-lieu">
+                  <%= comment.created_at.strftime("%d/%m/%y - %H:%M") %>
+                  <% if comment.nb_update!=nil && comment.nb_update > 0 %>
+                      <br/>Edité <%= comment.nb_update %> fois - Dernière édition : <%= comment.updated_at %>
+                  <% end %>
+                </p>
 
-          <!-- template commentaires
+              </div>
+            <% end %>
 
-          <div class="article-comment">
-            <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
+            <div class="article-comment-ctrl"><p><i class="fa fa-comments" aria-hidden="true"></i> Cacher les commentaires</p></div>
 
-            <h2><i class="fa fa-user" aria-hidden="true"></i> Username</h2>
-            <p>Content</p>
-            <p class="article-lieu">Date</p>
-          </div>
-
-          <div class="article-comment">
-            <i class="fa fa-comment comment-logo" aria-hidden="true"></i>
-
-            <h2><i class="fa fa-user" aria-hidden="true"></i> Username</h2>
-            <p>Content</p>
-            <p class="article-lieu">Date</p>
-          </div>
-
-          <div class="article-comment-ctrl"><p><i class="fa fa-comments" aria-hidden="true"></i> Cacher les commentaires</p></div>
-
-          -->
+          <% end %>
 
         </article>
 
@@ -95,10 +87,3 @@
           <div class="article-chronology-date"><p><%= stage.date_time.strftime('%d.%m.%Y') %> <br/> <%=stage.date_time.strftime('%H:%M')%> </p></div>
         </div>
       </section>
-
-    <% end %>
-  <% end %>
-
-
-
-</section>

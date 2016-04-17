@@ -69,6 +69,10 @@ en:
 
   stage_no_score : "0 = No Score"
 
+  stage_comment_page_title : "Comments"
+  stage_comment_page_return : "Back to the trip"
+  stage_comment_page_write_submit : "Send the comment"
+
   activerecord:
       models:
         stage: trip stage
