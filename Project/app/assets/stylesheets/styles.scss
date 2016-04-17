@@ -707,16 +707,13 @@ input[type="submit"]{
 }
 
 .article-comment-ctrl{
-  background-color: white;
-  @include border-radius(10px);
-  padding: 10px;
-  margin-right: 20px;
-  margin-top: 10px;
 
+  color: white;
+
+  padding: 10px;
+  margin-top: 10px;
   cursor: pointer;
 
-  -webkit-box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
 
   &:hover{
     opacity: 0.8;
@@ -726,15 +723,20 @@ input[type="submit"]{
     margin: 0;
     padding: 0;
     line-height: 10px;
-    text-align: center;
+    text-align: right;
 
     font-weight: bold;
   }
 }
 
+.article-comments{
+  overflow: hidden;
+  height: 0;
+}
+
 .article-comment{
   background-color: white;
-  margin-right: 20px;
+
   margin-top: 10px;
 
   padding: 5px 15px 5px 15px;
@@ -1235,14 +1237,6 @@ input[type="submit"]{
   }
 
 
-
-
-}
-
-
-@media all and (max-width: $mobile-size) {
-
-
   //articles
 
   .article-little-infos {
@@ -1269,6 +1263,13 @@ input[type="submit"]{
   .article-chronology-date{
     display: none;
   }
+
+
+}
+
+
+@media all and (max-width: $mobile-size) {
+
 
   .display-box {
 
