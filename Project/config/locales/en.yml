@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
+  website_title : "Neeeed Holiday !"
   insertArticle: "Insert article"
   editArticle: "Edit article"
   insertButton: "Insert"
@@ -33,7 +35,7 @@ en:
   travel_create_trip_title : "Title"
   travel_create_trip_description : "Description"
 
-  you_havent_perm: "Sorry, you haven't the permissions"
+  not_allowed: "Sorry, you haven't the permissions"
 
   trip_personnal_title: "My Trips"
   trip_personnal_empty: "You currently don't have any trip"
@@ -56,9 +58,9 @@ en:
   save: "Save"
   cancel : "Cancel"
 
-  last_articles: "Last articles"
-
-  all_travels: "See all travels"
+  home_trip_discover : "Discover"
+  home_last_articles: "Last articles"
+  home_all_travels: "See all travels"
 
   trip_creation_success : "The trip was perfectly created!"
   trip_creation_not_connected : "Please sign in to create a trip."
@@ -69,8 +71,6 @@ en:
   trip_removal_not_owner : "You can not delete someone else's trip"
   trip_removal_not_connected : "Please sign in to remove a trip."
 
-  home_trip_discover : "Discover"
-
   stage_no_score : "0 = No Score"
 
   stage_comment_page_title : "Comments"
@@ -79,6 +79,29 @@ en:
   stage_comment_write_link : "Write a comment"
   stage_comment_singular : "comment"
   stage_comment_plural : "comments"
+  stage_comment_success : "Your comment was successfully posted"
+  stage_comment_not_connected : "Please sign in to comment"
+
+  sign_up_title : "Sign up"
+  sign_up_button : "Join us"
+
+  login_title : "Login"
+  login_button : "Login"
+
+  account_password_minimum : "characters minimum"
+
+  footer_promo_title : "What can you do ? "
+  footer_join_us : "Join us and start your virtual travel"
+  footer_create_trip : "Create your trip's page"
+  footer_share_experiences : "Talk about your visits and discoveries"
+  footer_friends_trips : "Follow other people's trips"
+  footer_more : "And a lot more enjoyable stuffs!"
+  footer_citation : "Le plus beau voyage, c'est celui qu'on n’a pas encore fait."
+  footer_author : "Loïck Peyron"
+  footer_about_us_title : "About us"
+
+  stage_delete_confirm : "Are you sure you want to delete this stage ?"
+  trip_delete_confirm : "Are you sure you want to delete this TRIP ?"
 
   activerecord:
       models:

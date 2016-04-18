@@ -7,7 +7,7 @@ class StagesController < ApplicationController
   def identificate_user
 
     if !user_signed_in? || current_user != @trip.user
-      flash[:notice] = t('you_havent_perm')
+      flash[:notice] = t('not_allowed')
       redirect_to @trip
     end
 

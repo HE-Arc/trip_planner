@@ -1,21 +1,26 @@
 class StageCommentsController < ApplicationController
 
   def create
-    @stage_comment = StageComment.new(params[:stage_comment])
+    if current_user != nil
+      @stage_comment = StageComment.new(params[:stage_comment])
 
-    if params[:stage_id]
-      @stage = Stage.find(params[:stage_id])
-    end
+      if params[:stage_id]
+        @stage = Stage.find(params[:stage_id])
+      end
 
-    @stage_comment.stage = @stage
-    @stage_comment.user = current_user
+      @stage_comment.stage = @stage
+      @stage_comment.user = current_user
 
-    if @stage_comment.save
-      flash.notice = @stage.inspect
-      redirect_to :back
+      if @stage_comment.save
+        flash.notice = t('stage_comment_success')
+        redirect_to :back
+      else
+        flash.alert = @trip.errors.full_messages
+        redirect_to action: :new
+      end
     else
-      flash.alert = @trip.errors.full_messages
-      redirect_to action: :new
+      flash.alert = t('trip_creation_not_connected')
+      redirect_to action: :index
     end
   end
 

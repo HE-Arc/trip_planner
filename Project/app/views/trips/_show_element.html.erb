@@ -23,13 +23,11 @@
     </div>
   </div>
   <div class="display-box-buttons">
-    <div class="display-box-buttons-left">
-      <% if !current_user.nil? && current_user == trip.user %>
+    <% if !current_user.nil? && current_user == trip.user %>
+        <div class="display-box-buttons-left">
           <i class="fa fa-pencil"></i> <%= link_to t('trip_personnal_edit'), edit_trip_path(trip.id) %>
-      <% else %>
-          <i class="fa fa-star"></i> <%= link_to t('trip_list_follow') %>
-      <% end %>
-    </div>
+        </div>
+    <% end %>
     <%= link_to(trip) do %>
         <div class="display-box-buttons-right">
           <%= t('trip_list_view') %>

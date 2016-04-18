@@ -1,57 +1,6 @@
 <% content_for :title, @trip.title %>
 
-<section id="head-travel">
-
-  <div id="head-travel-center">
-
-    <div id="head-travel-img"><%= image_tag @trip.image.url(:small) %></div>
-    <div id="head-travel-descr">
-
-      <span class="hidden" id="trip_id"><%= @trip.id %></span>
-
-      <p><%= @trip.title %></p>
-      <p><i class="fa fa-calendar"></i>
-        <%= if !@trip.date_start.nil?
-           @trip.date_start.strftime("%d/%m/%y")
-         else
-           t('trip_date_unknown')
-         end %>
-        -
-        <%= if !@trip.date_end.nil?
-            @trip.date_end.strftime("%d/%m/%y")
-        else
-            t('trip_date_unknown')
-        end %>
-        <br/></p>
-      <p><i class="fa fa-user"></i>
-      <%= @trip.user.username %></p>
-    </div>
-
-    <div id="head-travel-ctrl">
-
-
-
-      <% if current_user == @trip.user && !current_user.nil? %>
-
-          <a href="#" class="little-ctrl-button" id="open-frm-insert">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-          </a>
-
-          <a href="<%=edit_trip_path(@trip.id)%>" class="little-ctrl-button">
-            <i class="fa fa-pencil"></i>
-          </a>
-
-          <%= link_to @trip, :method=>:delete, data: {:confirm => 'Are you sure?'}, :class=>"little-ctrl-button" do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          <% end %>
-
-      <% end %>
-
-
-    </div>
-  </div>
-
-</section>
+<%= render 'trips/header', :trip => @trip %>
 
 <% if current_user == @trip.user && !current_user.nil? %>
   <section id="trip-insert-frm" class="trip-frm">

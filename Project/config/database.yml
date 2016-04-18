@@ -47,7 +47,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-
+staging:
+  <<: *default
+  database: <%= ENV['MYSQL_USERNAME'] %>
+  user: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
 
 #Dans le readme sur le srv
 production:

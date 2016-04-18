@@ -4,7 +4,6 @@
   src: url(../fonts/Lobster.otf);
 }
 
-
 $mainColor : #00DED9;
 $light-zone : #e4e4e4;
 $lighter-zone : #f2f2f2;
@@ -43,6 +42,10 @@ h1, h2, h3, p{
 
 a{
   text-decoration: none;
+}
+
+.dark_link {
+  color: $dark-touch !important;
 }
 
 @mixin content-center(){
@@ -1159,8 +1162,8 @@ input[type="submit"]{
   font-family: "Century Gothic", Arial, sans-serif;
   overflow: hidden;
   height: 100%;
+  width: 100%;
   margin: 1%;
-  min-width: 500px;
 
   .display-box-top {
     margin: 10px;
@@ -1309,6 +1312,26 @@ input[type="submit"]{
         float: none;
         border-top: 2px solid #FFFFFF;
       }
+    }
+  }
+
+  footer{
+
+    .footer-col{
+      display: block;
+      width: 100%;
+
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .col2{
+      border-left: none;
+      border-right: none;
+      border-top: dashed;
+      border-bottom: dashed;
+      border-color: $dark-touch;
+      border-width: 1px;
     }
   }
 }
