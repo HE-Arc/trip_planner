@@ -47,6 +47,9 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: Project_staging
 
 
 #Dans le readme sur le srv
