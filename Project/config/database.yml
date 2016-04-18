@@ -49,8 +49,9 @@ test:
 #
 staging:
   <<: *default
-  database: Project_staging
-
+  database: <%= ENV['MYSQL_USERNAME'] %>
+  user: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
 
 #Dans le readme sur le srv
 production:
