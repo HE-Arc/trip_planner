@@ -36,7 +36,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, map) {
             if(tripbox.length)
             {
                 $('#tripName').text(data.trip.title);
-                $('#tripUserName').text(data.user.email);
+                $('#tripUserName').text(data.user.username);
                 $('#tripLocation').text(data.trip.country_name.data.name);
                 $('#trip-img').attr("src", data.trip.image_url);
 
