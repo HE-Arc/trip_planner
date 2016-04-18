@@ -56,6 +56,6 @@ staging:
 #Dans le readme sur le srv
 production:
   <<: *default
-  database: Project_production
-  username: Project
-  password: <%= ENV['PROJECT_DATABASE_PASSWORD'] %>
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  database: <%= ENV['MYSQL_USERNAME'] %>_production
+  password: <%= ENV['MYSQL_PASSWORD'] %>
